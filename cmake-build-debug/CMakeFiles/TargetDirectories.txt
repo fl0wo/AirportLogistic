@@ -1,0 +1,3 @@
+C:/Users/flo/Downloads/CLionSFML-master/CLionSFML-master/cmake-build-debug/CMakeFiles/NomProjet.dir
+C:/Users/flo/Downloads/CLionSFML-master/CLionSFML-master/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/flo/Downloads/CLionSFML-master/CLionSFML-master/cmake-build-debug/CMakeFiles/rebuild_cache.dir

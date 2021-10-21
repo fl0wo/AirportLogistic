@@ -1,0 +1,3 @@
+C:\Users\flo\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\203.7148.70\bin\cmake\win\bin\cmake.exe -E rm -f CMakeFiles\NomProjet.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\NomProjet.dir/objects.a @CMakeFiles\NomProjet.dir\objects1.rsp
+C:\MinGW\bin\g++.exe  -std=c++14 -static -g   -Wl,--whole-archive CMakeFiles\NomProjet.dir/objects.a -Wl,--no-whole-archive  -o NomProjet.exe -Wl,--out-implib,libNomProjet.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\NomProjet.dir\linklibs.rsp
