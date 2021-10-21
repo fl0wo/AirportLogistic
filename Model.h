@@ -22,7 +22,7 @@ typedef vector<int> vi;
 typedef vector<bool> vb;
 typedef vector<vi> vvi;
 
-static const char *const INPUT_FILE_NAME = "C:\\Users\\flo\\Downloads\\CLionSFML-master\\CLionSFML-master\\in2.txt";
+static const char *const INPUT_FILE_NAME = "C:\\Users\\flo\\Downloads\\CLionSFML-master\\CLionSFML-master\\in.txt";
 
 class Model {
 
@@ -211,7 +211,7 @@ class Model {
     struct edge{
         int id;
         double time;
-        double multiplier;
+        pair<point,point> closest;
     };
 
     point A,B;
@@ -222,14 +222,14 @@ class Model {
     int L;
 
     void connectEdges(){
-        g[A.id].push_back({B.id,A.distanceFromPoint(B),1}); // walk
+        g[A.id].push_back({B.id,A.distanceFromPoint(B),mp(B,B)}); // walk
         // connect all lines together
         for(node l : tras){
-            g[A.id].push_back({l.getId(),reduceToNode(A).distanceFromNode(l),1}); // walk
+            g[A.id].push_back({l.getId(),reduceToNode(A).distanceFromNode(l),mp(A.closestPointToLine(l.da,l.a),A.closestPointToLine(l.da,l.a))}); // walk
             for(node other : tras)
                 if (l.getId() != other.getId())
-                    g[l.getId()].push_back({other.getId(), l.distanceFromNode(other), 1}); // change transport
-            g[l.getId()].push_back({B.id,l.distanceFromNode(reduceToNode(B)),1}); // walk
+                    g[l.getId()].push_back({other.getId(), l.distanceFromNode(other),l.pathToNode(other)}); // change transport
+            g[l.getId()].push_back({B.id,l.distanceFromNode(reduceToNode(B)),l.pathToNode(reduceToNode(B))}); // walk
         }
     }
 
@@ -254,7 +254,7 @@ class Model {
     void printGraph(){
         REP(i,L+1){
             REP(j,g[i].size())
-                cout << i << " -> " << g[i][j].id << "," <<  g[i][j].time*g[i][j].multiplier << endl;
+                cout << i << " -> " << g[i][j].id << "," <<  g[i][j].time << endl;
         }
     }
 
@@ -339,7 +339,8 @@ public:
 
         init_ss(A.id);
 
-        int x,y,z;
+        int x,y;
+        double z;
 
         while(!coda.empty()){
             auto it=coda.begin();
@@ -353,7 +354,10 @@ public:
 
             REP(i,g[x].size()){
                 y = g[x][i].id;
-                z = g[x][i].time * g[x][i].multiplier;      // TODO: NEED TO CONSIDER ALSO ON TRASPORT TIME TRAVEL
+                z = g[x][i].time; //+ g[x][i].closest.first.distanceFromPoint(
+                              //  g[pi[x]][x].closest.second
+                                //)/2.0;      // TODO: NEED TO CONSIDER ALSO ON TRASPORT TIME TRAVEL
+
                 //relax
                 relax(x,y,d[x]+z);
             }
@@ -365,6 +369,8 @@ public:
 
     vector<pii> shortestPath() {
         double walk_lenght = dij();
+
+        cout<<walk_lenght<<"  ";
 
         tras.push_back(reduceToNode(A));
         tras.push_back(reduceToNode(B));
@@ -378,8 +384,13 @@ public:
             points.emplace_back(connector.second);
         }
 
+        cout<<"(";
         totalTime = 0;
-        REP(i,points.size()-1) totalTime += points[i].distanceFromPoint(points[i+1]);
+        REP(i,points.size()-1) {
+            cout << points[i].distanceFromPoint(points[i+1]) / ((i%2!=0) ? 2:1)<< " , ";
+            totalTime += points[i].distanceFromPoint(points[i+1]) / ((i%2!=0) ? 2:1) ;
+        }
+        cout<<")\n";
 
         vector<pii> path;
         REP(i,points.size()) path.push_back(puntoToPii(points[i]));
