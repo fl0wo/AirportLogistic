@@ -213,8 +213,6 @@ class Model {
     struct edge{
         int id;
         double time;
-        pair<point,point> closest;
-        int parentId;
     };
 
     point A,B;
@@ -226,16 +224,17 @@ class Model {
 
     void connectEdges(){
 
-        g[A.id][B.id] = {B.id,A.distanceFromPoint(B),mp(B,B)}; // walk
-        g[A.id][A.id] = {A.id,0,mp(A,A)}; // A is already connected to him self
+        g[A.id][B.id] = {B.id,A.distanceFromPoint(B)}; // walk
+        g[A.id][A.id] = {A.id,0}; // A is already connected to him self
 
         // connect all lines together
         for (node l : tras) {
-            g[A.id][l.getId()] = {l.getId(),reduceToNode(A).distanceFromNode(l),l.pathToNode(reduceToNode(A))}; // walk
+            g[A.id][l.getId()] = {l.getId(),reduceToNode(A).distanceFromNode(l)}; // walk
             for(node other : tras)
                 if (l.getId() != other.getId())
-                    g[l.getId()][other.getId()] = {other.getId(), l.distanceFromNode(other),l.pathToNode(other)}; // change transport
-            g[l.getId()][B.id] = {B.id,l.distanceFromNode(reduceToNode(B)),l.pathToNode(reduceToNode(B))}; // walk
+                    g[l.getId()][other.getId()] = {other.getId(), l.distanceFromNode(other)}; // change transport
+
+            g[l.getId()][B.id] = {B.id,l.distanceFromNode(reduceToNode(B))}; // walk
         }
     }
 
@@ -251,6 +250,10 @@ class Model {
         }
         A.id=inc_id++;
         B.id=inc_id++;
+
+        //tras.push_back(reduceToNode(A));
+        //tras.push_back(reduceToNode(B));
+
     }
 
     void initStartAndEnd(){
@@ -343,7 +346,6 @@ public:
             else b[verso]=true;
             d[verso]=peso;
             pi[verso]=da;
-            g[da][verso].parentId=da;
             coda.insert(make_pair(d[verso],verso));
         }
     }
@@ -389,50 +391,58 @@ public:
             x = (*it).second;
             coda.erase(it);
 
-            // single source single destination ???
+            // single source single destination ?
             if(x==B.id){
+                return d[B.id];
 
                 int track = x;
                 cout<<np(track);
+                double total_real = 0;
                 while(track!=A.id){
 
-                    double t = g[pi[track]][track].time;
-                    double zed = distanceBetween(g[pi[track]][track].closest.first.x,g[pi[track]][track].closest.first.y
-                            ,g[pi[pi[track]]][pi[track]].closest.second.x,g[pi[pi[track]]][pi[track]].closest.second.y) /2.0;
+                    pair<point,point> ppp = tras[pi[track]].pathToNode(tras[track]);
+                    pair<point,point> ppp2 = tras[pi[pi[track]]].pathToNode(tras[pi[track]]);
 
-                    if (x!=A.id)
-                        gg.drawLine(g[pi[track]][track].closest.first.x+2,g[pi[track]][track].closest.first.y+2
-                                ,g[pi[pi[track]]][pi[track]].closest.second.x+2,
-                                    g[pi[pi[track]]][pi[track]].closest.second.y+2,
+                    double t = g[pi[track]][track].time;
+                    double zed = distanceBetween(
+                            ppp.first.x,ppp.first.y
+                            ,ppp2.second.x,ppp2.second.y) /2.0;
+
+                        gg.drawLine(ppp.first.x+2,ppp.first.y+2
+                                ,ppp2.second.x+2,
+                                    ppp2.second.y+2,
                                     "red");
-                    int ciccio = 1;
-                    gg.drawLine(g[pi[ciccio]][ciccio].closest.first.x+4,g[pi[ciccio]][ciccio].closest.first.y+4
-                            ,g[pi[pi[ciccio]]][pi[ciccio]].closest.second.x+4,
-                                g[pi[pi[ciccio]]][pi[ciccio]].closest.second.y+4,"magenta");
 
                     cout << " <- ["<<t<<"] " << np(pi[track]) << " " << zed << " ";
-
+                    total_real+= t + zed;
                     track = pi[track];
                 }
+                cout << endl <<" total_real " << total_real << endl;
 
                 return d[B.id];
             }
 
-            REP(i,L+2){
-                if(i==x) continue;
-                y = g[x][i].id;
+            REP (i,L+2) {
+                if (i==x || i==A.id) continue;
+
                 z = g[x][i].time;
 
-               /* if (x!=A.id)
-                    z += 0 * distanceBetween(g[pi[y]][indexOf(g[pi[y]],y)].closest.first.x+2,g[pi[y]][indexOf(g[pi[y]],y)].closest.first.y+2
-                        ,g[pi[pi[y]]][indexOf(g[pi[pi[y]]],pi[y])].closest.second.x+2,
-                        g[pi[pi[y]]][indexOf(g[pi[pi[y]]],pi[y])].closest.second.y+2);
-*/
-                // TODO: NEED TO CONSIDER ALSO ON TRASPORT TIME TRAVEL
+                pair<point,point> doveMiStacco = tras[x].pathToNode(tras[i]);
+                pair<point,point> doveMiSonoStaccato = tras[pi[x]].pathToNode(tras[x]);
 
-                //printf("lol : %f %f %f %f",g[x][i].closest.first.x,g[x][i].closest.first.y,g[g[x][i].parentId][indexOf(g[g[x][i].parentId],x)].closest.second.x,g[g[x][i].parentId][indexOf(g[g[x][i].parentId],x)].closest.second.y);
+                gg.drawLine(doveMiStacco.first.x+2,doveMiStacco.first.y+2
+                        ,doveMiSonoStaccato.second.x+2,
+                            doveMiSonoStaccato.second.y+2,
+                            "red");
+
+                double zed = distanceBetween(
+                        doveMiStacco.first.x,doveMiStacco.first.y,
+                        doveMiSonoStaccato.second.x,doveMiSonoStaccato.second.y
+                        ) /2.0;
+                z+=zed;
+
                  //relax
-                relax(x,y,d[x]+z);
+                relax(x,i,d[x]+z);
             }
         }
 
@@ -460,7 +470,7 @@ public:
         totalTime = 0;
         REP(i,points.size()-1) {
             double mem = points[i].distanceFromPoint(points[i+1]) / ((i%2!=0) ? 2.0:1.0);
-            cout << mem<< " , ";
+            cout << mem << " , ";
             totalTime += mem ;
         }
         cout<<")\n";
@@ -475,5 +485,31 @@ public:
     }
 };
 
+/*
+     int track = x;
+                cout<<np(track);
+                double total_real = 0;
+                while(track!=A.id){
+
+                    pair<point,point> ppp = tras[pi[track]].pathToNode(tras[track]);
+                    pair<point,point> ppp2 = tras[pi[pi[track]]].pathToNode(tras[pi[track]]);
+
+                    double t = g[pi[track]][track].time;
+                    double zed = distanceBetween(
+                            ppp.first.x,ppp.first.y
+                            ,ppp2.second.x,ppp2.second.y) /2.0;
+
+                    if (x!=A.id)
+                        gg.drawLine(ppp.first.x+2,ppp.first.y+2
+                                ,ppp2.second.x+2,
+                                    ppp2.second.y+2,
+                                    "red");
+
+                    //cout << " <- ["<<t<<"] " << np(pi[track]) << " " << zed << " ";
+                    //total_real+= t + zed;
+                    track = pi[track];
+                }
+                /cout << endl <<" total_real " << total_real << endl;
+ */
 
 #endif //NOMPROJET_MODEL_H
