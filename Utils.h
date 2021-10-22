@@ -21,6 +21,12 @@ typedef pair<int,int> pii;
 struct Utils{
     static int abs(int a) { return a < 0 ? -a : a; }
     static double min4(double a, double b, double c, double d) { return min(a, min(b, min(c, d))); }
+
+    static double calcCat1(double cat2) { return ((2 * cat2) / sqrt(3)) / 2; }
+
+    static double calcIpot(double cat1) { return cat1 * 2; }
+
+
 };
 
 

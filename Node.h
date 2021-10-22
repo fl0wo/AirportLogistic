@@ -44,22 +44,15 @@ struct Node {
         double minCat = Utils::min4(p1L, p2L, p3L, p4L);
 
         if (minCat == p1L) {
-            return mp(da,
-                      p1);//.followByWithBounds(-calcCat1(da.distanceFromInfiniteLine(b.da,b.a)),b.da,b.a));
-
+            return mp(da,p1);
         } else if (minCat == p2L) {
-            return mp(a,//.followByWithBounds(+calcCat1(p2.distanceFromInfiniteLine(da,a)),a,da),
-                      p2);
-
+            return mp(a,p2);
         } else if (minCat == p3L) {
-            return mp(p3,//.followByWithBounds(calcCat1(p3.distanceFromInfiniteLine(da,a)),da,a),
-                      b.da);
+            return mp(p3,b.da);
         } else if (minCat == p4L) {
             return mp(p4, b.a);
         }
     }
-
-    double calcCat1(double cat2) { return ((2 * cat2) / sqrt(3)) / 2; }
 
     int getId() { return da.id; }
 

@@ -65,6 +65,7 @@ public:
         if (colorName == "red") return Color::Red;
         if (colorName == "white") return Color::White;
         if (colorName == "magenta") return Color::Magenta;
+        if (colorName == "yellow") return Color::Yellow;
 
         return Color::Green;
     }

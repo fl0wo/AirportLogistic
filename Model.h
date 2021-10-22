@@ -17,17 +17,26 @@ class Model {
     const double TRANSPORTER_SPEED = 2.0;
     const char* INPUT_FILE_NAME;
     bool debugDrawEnabled;
+    Point A,B;
+    vector<Node> tras;
+    int L;
 
     struct Edge{
         double time;
     };
 
-    Point A,B;
-    vector<Node> tras;
+    struct Triangle{
+        Point a;
+        Point b;
+        Point c;
+    };
+
     Edge g[MAXN][MAXN];
 
-    int inc_id=0;
-    int L;
+    set <pair <double,int> > coda;
+    vector <double> d;
+    vector <bool> b;
+    vector <int> pi;
 
     void connectEdges(){
 
@@ -48,7 +57,7 @@ class Model {
     void initLines(){
         tras.clear();
         cin>>L;
-        inc_id=0;
+        int inc_id=0;
         REP(i,L){
             Point da,a;
             cin>>da.x>>da.y>>a.x>>a.y;
@@ -58,8 +67,8 @@ class Model {
         A.id=inc_id++;
         B.id=inc_id++;
 
-        //tras.push_back(reduceToNode(A));
-        //tras.push_back(reduceToNode(B));
+        tras.push_back(reduceToNode(A));
+        tras.push_back(reduceToNode(B));
     }
 
     void initStartAndEnd(){
@@ -78,7 +87,6 @@ class Model {
         pi.clear();
         d.clear();
         b.clear();
-        //tras.clear();
     }
 
 public:
@@ -92,13 +100,6 @@ public:
         this->INPUT_FILE_NAME=fileName;
         this->debugDrawEnabled = debugDrawEnabled;
     }
-
-
-    set <pair <double,int> > coda;
-    vector <double> d;
-    vector <bool> b;
-    vector <int> pi;
-    double totalTime=0.0;
 
     Graphics DEBUG_DRAW;
 
@@ -162,6 +163,8 @@ public:
         return hypot(x1-x2,y1-y2);
     }
 
+
+
     double dij() {
         coda.clear();
         pi.clear();
@@ -185,20 +188,20 @@ public:
             REP (i,L+2) {
                 if (i==x || i==A.id) continue;
 
+                Triangle arch = calcArch(x,i);
 
-                pair<Point,Point> latestJoint = tras[x].pathToNode(tras[i]);
-                pair<Point,Point> jointBeforeLatest = tras[pi[x]].pathToNode(tras[x]);
+                Point from = arch.a;
+                Point to = arch.b;
+                Point lastTouch = arch.c;
 
-                DEBUG_DRAW.drawLine(latestJoint.first.x + 2, latestJoint.first.y + 2
-                        ,jointBeforeLatest.second.x+2,
-                            jointBeforeLatest.second.y+2,
-                                    "red");
+                double hypot = to.distanceFromPoint(lastTouch);
 
-                double zed = g[x][i].time +
-                             distanceBetween(
-                                latestJoint.first.x,latestJoint.first.y,
-                                jointBeforeLatest.second.x,jointBeforeLatest.second.y) / TRANSPORTER_SPEED;
+                // ULTIMO TRASPORTATORE PRESO
+                // DEBUG_DRAW.drawLine(to.x + 2, to.y + 2 ,from.x+2,from.y+2,"red");
+                // ULTIMO TRATTO A PIEDI
+                // if (to.liesOn(from,to)) DEBUG_DRAW.drawLine(to.x + 2,to.y + 2,lastTouch.x + 2, lastTouch.y + 2,"yellow");
 
+                double zed = hypot + distanceBetween(from.x,from.y,to.x,to.y) / TRANSPORTER_SPEED;
                 // relax
                 relax(x,i,d[x]+zed);
             }
@@ -207,31 +210,37 @@ public:
         return d[B.id];
     }
 
+    Triangle calcArch(int from, int to) {
+
+        pair<Point,Point> latestJoint = tras[from].pathToNode(tras[to]);
+        pair<Point,Point> jointBeforeLatest = tras[pi[from]].pathToNode(tras[from]);
+
+        Point tFrom = jointBeforeLatest.second;
+        Point tTo = latestJoint.first;
+        Point lastTouch = latestJoint.second;
+
+        Point intersect = lastTouch.closestPointToInfiniteLine(tFrom, tTo);
+        double cat1 = Utils::calcCat1(lastTouch.distanceFromInfiniteLine(tFrom, tTo));
+        Point t_to2 = Point::followByWithBounds(cat1, intersect, tFrom);
+
+        return {tFrom, t_to2, lastTouch};
+    }
+
     vector<pii> shortestPath() {
         double walk_lenght = dij();
 
-        cout<<endl<< "total2 :" <<walk_lenght<<"\n";
-
-        tras.push_back(reduceToNode(A));
-        tras.push_back(reduceToNode(B));
         int cur=B.id;
         vector<Point> points;
 
         while(cur!=A.id) {
-            pair<Point,Point> connector = tras[cur].pathToNode(tras[pi[cur]]);
+            //pair<Point,Point> connector = tras[cur].pathToNode(tras[pi[cur]]);
+            Triangle connector = calcArch(pi[cur],cur);
             cur=pi[cur];
-            points.emplace_back(connector.first);
-            points.emplace_back(connector.second);
-        }
+            points.emplace_back(connector.c);
+            points.emplace_back(connector.b);
+            points.emplace_back(connector.a);
 
-        cout<<"(";
-        totalTime = 0;
-        REP(i,points.size()-1) {
-            double mem = points[i].distanceFromPoint(points[i+1]) / ((i%2!=0) ? TRANSPORTER_SPEED :1.0);
-            cout << mem << " , ";
-            totalTime += mem ;
         }
-        cout<<")\n";
 
         vector<pii> path;
         REP(i,points.size()) path.push_back(puntoToPii(points[i]));
@@ -239,9 +248,25 @@ public:
     }
 
     double shortestPathTimeSec() {
-        return totalTime;
+        return d[B.id];
     }
 
 };
+
+/*
+
+                 // else zed = g[x][i].time + distanceBetween(t_from.x,t_from.y,t_to.x,t_to.y) / TRANSPORTER_SPEED;
+
+
+         cout<<"(";
+        double totalTime = 0;
+        REP(i,points.size()-1) {
+            double mem = points[i].distanceFromPoint(points[i+1]) / ((i%2!=0) ? TRANSPORTER_SPEED :1.0);
+            cout << mem << " , ";
+            totalTime += mem ;
+        }
+        cout<<")\n";
+
+ */
 
 #endif //NOMPROJET_MODEL_H

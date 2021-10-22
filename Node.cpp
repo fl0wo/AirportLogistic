@@ -4,7 +4,6 @@
 
 #include<iostream>
 #include "Node.h"
-#include "Point.h"
 
 int testDistancePointFromLine(){
     Point v = {0, 0};

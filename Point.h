@@ -81,11 +81,31 @@ struct Point{
         return distanceFromPoint({xx,yy});
     }
 
+    Point closestPointToInfiniteLine(Point a, Point b) {
+        if(a.equals(b)){
+            return {a.x,a.y};
+        }
+        double lineX = b.x - a.x;
+        double lineY = b.y - a.y;
+        double dot = (x - a.x) * lineX + (y - a.y) * lineY;
+        double len_sq = lineX * lineX + lineY * lineY;
+        double param = -1;
+        double xx;
+        double yy;
+
+        if (len_sq != 0) {
+            param = dot / len_sq;
+        }
+        xx = a.x + param * lineX;
+        yy = a.y + param * lineY;
+        return {xx,yy};
+    }
+
     bool equals(Point p) {
         return x==p.x && y==p.y;
     }
 
-    Point followBy(double distance, Point a, Point b) {
+    static Point followBy(double distance, Point a, Point b) {
 
         double vx = b.x - a.x;
         double vy = b.y - a.y;
@@ -101,11 +121,19 @@ struct Point{
         return {px,py};
     }
 
-    Point followByWithBounds(double distance, Point a, Point b) {
+    static Point followByWithBounds(double distance, Point a, Point b) {
         double mag = hypot(b.x - a.x,b.y - a.y);
         if (distance>=mag) return b;
         if (distance<0) return a;
         return followBy(distance,a,b);
+    }
+
+    bool liesOn(Point a,Point b){
+        double ab = a.distanceFromPoint(b);
+        double ac = distanceFromPoint(a);
+        double cb = distanceFromPoint(b);
+
+        return ((ac + cb) - ab) < 0.1;
     }
 
 };
