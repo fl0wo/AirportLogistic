@@ -90,38 +90,10 @@ CMakeFiles/NomProjet.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/NomProjet.dir/main.cpp.s"
 	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\flo\Downloads\CLionSFML-master\CLionSFML-master\main.cpp -o CMakeFiles\NomProjet.dir\main.cpp.s
 
-CMakeFiles/NomProjet.dir/Graphics.cpp.obj: CMakeFiles/NomProjet.dir/flags.make
-CMakeFiles/NomProjet.dir/Graphics.cpp.obj: CMakeFiles/NomProjet.dir/includes_CXX.rsp
-CMakeFiles/NomProjet.dir/Graphics.cpp.obj: ../Graphics.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\flo\Downloads\CLionSFML-master\CLionSFML-master\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/NomProjet.dir/Graphics.cpp.obj"
-	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\NomProjet.dir\Graphics.cpp.obj -c C:\Users\flo\Downloads\CLionSFML-master\CLionSFML-master\Graphics.cpp
-
-CMakeFiles/NomProjet.dir/Graphics.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/NomProjet.dir/Graphics.cpp.i"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\flo\Downloads\CLionSFML-master\CLionSFML-master\Graphics.cpp > CMakeFiles\NomProjet.dir\Graphics.cpp.i
-
-CMakeFiles/NomProjet.dir/Graphics.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/NomProjet.dir/Graphics.cpp.s"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\flo\Downloads\CLionSFML-master\CLionSFML-master\Graphics.cpp -o CMakeFiles\NomProjet.dir\Graphics.cpp.s
-
-CMakeFiles/NomProjet.dir/Model.cpp.obj: CMakeFiles/NomProjet.dir/flags.make
-CMakeFiles/NomProjet.dir/Model.cpp.obj: CMakeFiles/NomProjet.dir/includes_CXX.rsp
-CMakeFiles/NomProjet.dir/Model.cpp.obj: ../Model.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\flo\Downloads\CLionSFML-master\CLionSFML-master\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/NomProjet.dir/Model.cpp.obj"
-	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\NomProjet.dir\Model.cpp.obj -c C:\Users\flo\Downloads\CLionSFML-master\CLionSFML-master\Model.cpp
-
-CMakeFiles/NomProjet.dir/Model.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/NomProjet.dir/Model.cpp.i"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\flo\Downloads\CLionSFML-master\CLionSFML-master\Model.cpp > CMakeFiles\NomProjet.dir\Model.cpp.i
-
-CMakeFiles/NomProjet.dir/Model.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/NomProjet.dir/Model.cpp.s"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\flo\Downloads\CLionSFML-master\CLionSFML-master\Model.cpp -o CMakeFiles\NomProjet.dir\Model.cpp.s
-
 CMakeFiles/NomProjet.dir/Node.cpp.obj: CMakeFiles/NomProjet.dir/flags.make
 CMakeFiles/NomProjet.dir/Node.cpp.obj: CMakeFiles/NomProjet.dir/includes_CXX.rsp
 CMakeFiles/NomProjet.dir/Node.cpp.obj: ../Node.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\flo\Downloads\CLionSFML-master\CLionSFML-master\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/NomProjet.dir/Node.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\flo\Downloads\CLionSFML-master\CLionSFML-master\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/NomProjet.dir/Node.cpp.obj"
 	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\NomProjet.dir\Node.cpp.obj -c C:\Users\flo\Downloads\CLionSFML-master\CLionSFML-master\Node.cpp
 
 CMakeFiles/NomProjet.dir/Node.cpp.i: cmake_force
@@ -135,16 +107,12 @@ CMakeFiles/NomProjet.dir/Node.cpp.s: cmake_force
 # Object files for target NomProjet
 NomProjet_OBJECTS = \
 "CMakeFiles/NomProjet.dir/main.cpp.obj" \
-"CMakeFiles/NomProjet.dir/Graphics.cpp.obj" \
-"CMakeFiles/NomProjet.dir/Model.cpp.obj" \
 "CMakeFiles/NomProjet.dir/Node.cpp.obj"
 
 # External object files for target NomProjet
 NomProjet_EXTERNAL_OBJECTS =
 
 NomProjet.exe: CMakeFiles/NomProjet.dir/main.cpp.obj
-NomProjet.exe: CMakeFiles/NomProjet.dir/Graphics.cpp.obj
-NomProjet.exe: CMakeFiles/NomProjet.dir/Model.cpp.obj
 NomProjet.exe: CMakeFiles/NomProjet.dir/Node.cpp.obj
 NomProjet.exe: CMakeFiles/NomProjet.dir/build.make
 NomProjet.exe: C:/CLibraries/SFML/lib/libsfml-audio-s-d.a
@@ -168,7 +136,7 @@ NomProjet.exe: C:/CLibraries/SFML/lib/libogg.a
 NomProjet.exe: CMakeFiles/NomProjet.dir/linklibs.rsp
 NomProjet.exe: CMakeFiles/NomProjet.dir/objects1.rsp
 NomProjet.exe: CMakeFiles/NomProjet.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\flo\Downloads\CLionSFML-master\CLionSFML-master\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable NomProjet.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\flo\Downloads\CLionSFML-master\CLionSFML-master\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable NomProjet.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\NomProjet.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

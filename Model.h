@@ -12,9 +12,11 @@
 
 using namespace std;
 
-static const char *const INPUT_FILE_NAME = "C:\\Users\\flo\\Downloads\\CLionSFML-master\\CLionSFML-master\\in2.txt";
-
 class Model {
+
+    const double TRANSPORTER_SPEED = 2.0;
+    const char* INPUT_FILE_NAME;
+    bool debugDrawEnabled;
 
     struct Edge{
         double time;
@@ -81,7 +83,24 @@ class Model {
 
 public:
 
-    Graphics gg;
+    Model(const char *const fileName){
+        this->INPUT_FILE_NAME=fileName;
+        this->debugDrawEnabled = false;
+    }
+
+    Model(const char *const fileName,bool debugDrawEnabled){
+        this->INPUT_FILE_NAME=fileName;
+        this->debugDrawEnabled = debugDrawEnabled;
+    }
+
+
+    set <pair <double,int> > coda;
+    vector <double> d;
+    vector <bool> b;
+    vector <int> pi;
+    double totalTime=0.0;
+
+    Graphics DEBUG_DRAW;
 
     int initModel(){
         freopen(INPUT_FILE_NAME, "r", stdin);
@@ -118,12 +137,6 @@ public:
         return {p, p};
     }
 
-    set <pair <double,int> > coda;
-    vector <double> d;
-    vector <bool> b;
-    vector <int> pi;
-    double totalTime=0.0;
-
     void init_ss(int s){
         d[s] = 0;
         b[s] = true;
@@ -144,7 +157,6 @@ public:
     char np(int y) {
         return ((char)(y==B.id ? 'B' : ((y==A.id ? 'A' : (y+'0')))));
     }
-
 
     double distanceBetween(double x1, double y1, double x2, double y2) {
         return hypot(x1-x2,y1-y2);
@@ -173,20 +185,19 @@ public:
             REP (i,L+2) {
                 if (i==x || i==A.id) continue;
 
-                double zed = g[x][i].time;
 
                 pair<Point,Point> latestJoint = tras[x].pathToNode(tras[i]);
                 pair<Point,Point> jointBeforeLatest = tras[pi[x]].pathToNode(tras[x]);
 
-                gg.drawLine(latestJoint.first.x+2,latestJoint.first.y+2
+                DEBUG_DRAW.drawLine(latestJoint.first.x + 2, latestJoint.first.y + 2
                         ,jointBeforeLatest.second.x+2,
                             jointBeforeLatest.second.y+2,
-                            "red");
+                                    "red");
 
-                zed += distanceBetween(
-                        latestJoint.first.x,latestJoint.first.y,
-                        jointBeforeLatest.second.x,jointBeforeLatest.second.y
-                        ) /2.0;
+                double zed = g[x][i].time +
+                             distanceBetween(
+                                latestJoint.first.x,latestJoint.first.y,
+                                jointBeforeLatest.second.x,jointBeforeLatest.second.y) / TRANSPORTER_SPEED;
 
                 // relax
                 relax(x,i,d[x]+zed);
@@ -216,7 +227,7 @@ public:
         cout<<"(";
         totalTime = 0;
         REP(i,points.size()-1) {
-            double mem = points[i].distanceFromPoint(points[i+1]) / ((i%2!=0) ? 2.0:1.0);
+            double mem = points[i].distanceFromPoint(points[i+1]) / ((i%2!=0) ? TRANSPORTER_SPEED :1.0);
             cout << mem << " , ";
             totalTime += mem ;
         }
@@ -230,6 +241,7 @@ public:
     double shortestPathTimeSec() {
         return totalTime;
     }
+
 };
 
 #endif //NOMPROJET_MODEL_H

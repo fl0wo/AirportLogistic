@@ -1,9 +1,11 @@
 #include "Graphics.h"
 #include "Model.h"
 
+#define DEBUG_DRAW_TRUE true
+
 using namespace sf;
 
-Model m;
+Model m("C:\\Users\\flo\\Downloads\\CLionSFML-master\\CLionSFML-master\\input_files\\in1.txt",DEBUG_DRAW_TRUE);
 Graphics g;
 
 void draw(){
@@ -28,7 +30,7 @@ void draw(){
 int main(){
     g.initWindow(600, 600,"Airport Logistic");
     m.initModel();
-    m.gg=g;// DEBUG ONLY
+    m.DEBUG_DRAW=g;// DEBUG ONLY
     g.bindOnInit(draw);
 
     //g.bindAfterInit(printInfos)

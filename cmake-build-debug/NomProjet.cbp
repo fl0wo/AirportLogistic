@@ -84,13 +84,7 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="C:/Users/flo/Downloads/CLionSFML-master/CLionSFML-master/Graphics.cpp">
-			<Option target="NomProjet"/>
-		</Unit>
 		<Unit filename="C:/Users/flo/Downloads/CLionSFML-master/CLionSFML-master/Graphics.h">
-			<Option target="NomProjet"/>
-		</Unit>
-		<Unit filename="C:/Users/flo/Downloads/CLionSFML-master/CLionSFML-master/Model.cpp">
 			<Option target="NomProjet"/>
 		</Unit>
 		<Unit filename="C:/Users/flo/Downloads/CLionSFML-master/CLionSFML-master/Model.h">
@@ -108,7 +102,7 @@
 		<Unit filename="C:/Users/flo/Downloads/CLionSFML-master/CLionSFML-master/Utils.h">
 			<Option target="NomProjet"/>
 		</Unit>
-		<Unit filename="C:/Users/flo/Downloads/CLionSFML-master/CLionSFML-master/in.txt">
+		<Unit filename="C:/Users/flo/Downloads/CLionSFML-master/CLionSFML-master/input_files/in1.txt">
 			<Option target="NomProjet"/>
 		</Unit>
 		<Unit filename="C:/Users/flo/Downloads/CLionSFML-master/CLionSFML-master/main.cpp">

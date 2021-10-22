@@ -1,6 +1,4 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/NomProjet.dir/Graphics.cpp.obj"
-  "CMakeFiles/NomProjet.dir/Model.cpp.obj"
   "CMakeFiles/NomProjet.dir/Node.cpp.obj"
   "CMakeFiles/NomProjet.dir/main.cpp.obj"
   "NomProjet.exe"

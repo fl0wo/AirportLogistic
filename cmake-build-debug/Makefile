@@ -142,60 +142,6 @@ NomProjet/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\NomProjet.dir\build.make CMakeFiles/NomProjet.dir/build
 .PHONY : NomProjet/fast
 
-Graphics.obj: Graphics.cpp.obj
-
-.PHONY : Graphics.obj
-
-# target to build an object file
-Graphics.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\NomProjet.dir\build.make CMakeFiles/NomProjet.dir/Graphics.cpp.obj
-.PHONY : Graphics.cpp.obj
-
-Graphics.i: Graphics.cpp.i
-
-.PHONY : Graphics.i
-
-# target to preprocess a source file
-Graphics.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\NomProjet.dir\build.make CMakeFiles/NomProjet.dir/Graphics.cpp.i
-.PHONY : Graphics.cpp.i
-
-Graphics.s: Graphics.cpp.s
-
-.PHONY : Graphics.s
-
-# target to generate assembly for a file
-Graphics.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\NomProjet.dir\build.make CMakeFiles/NomProjet.dir/Graphics.cpp.s
-.PHONY : Graphics.cpp.s
-
-Model.obj: Model.cpp.obj
-
-.PHONY : Model.obj
-
-# target to build an object file
-Model.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\NomProjet.dir\build.make CMakeFiles/NomProjet.dir/Model.cpp.obj
-.PHONY : Model.cpp.obj
-
-Model.i: Model.cpp.i
-
-.PHONY : Model.i
-
-# target to preprocess a source file
-Model.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\NomProjet.dir\build.make CMakeFiles/NomProjet.dir/Model.cpp.i
-.PHONY : Model.cpp.i
-
-Model.s: Model.cpp.s
-
-.PHONY : Model.s
-
-# target to generate assembly for a file
-Model.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\NomProjet.dir\build.make CMakeFiles/NomProjet.dir/Model.cpp.s
-.PHONY : Model.cpp.s
-
 Node.obj: Node.cpp.obj
 
 .PHONY : Node.obj
@@ -259,12 +205,6 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... NomProjet
-	@echo ... Graphics.obj
-	@echo ... Graphics.i
-	@echo ... Graphics.s
-	@echo ... Model.obj
-	@echo ... Model.i
-	@echo ... Model.s
 	@echo ... Node.obj
 	@echo ... Node.i
 	@echo ... Node.s
