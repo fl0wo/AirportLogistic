@@ -96,6 +96,18 @@
 		<Unit filename="C:/Users/flo/Downloads/CLionSFML-master/CLionSFML-master/Model.h">
 			<Option target="NomProjet"/>
 		</Unit>
+		<Unit filename="C:/Users/flo/Downloads/CLionSFML-master/CLionSFML-master/Node.cpp">
+			<Option target="NomProjet"/>
+		</Unit>
+		<Unit filename="C:/Users/flo/Downloads/CLionSFML-master/CLionSFML-master/Node.h">
+			<Option target="NomProjet"/>
+		</Unit>
+		<Unit filename="C:/Users/flo/Downloads/CLionSFML-master/CLionSFML-master/Point.h">
+			<Option target="NomProjet"/>
+		</Unit>
+		<Unit filename="C:/Users/flo/Downloads/CLionSFML-master/CLionSFML-master/Utils.h">
+			<Option target="NomProjet"/>
+		</Unit>
 		<Unit filename="C:/Users/flo/Downloads/CLionSFML-master/CLionSFML-master/in.txt">
 			<Option target="NomProjet"/>
 		</Unit>

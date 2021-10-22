@@ -6,7 +6,6 @@
 #define NOMPROJET_GRAPHICS_H
 
 #include <SFML/Graphics.hpp>
-#include <string.h>
 
 using namespace sf;
 using namespace std;

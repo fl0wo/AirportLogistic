@@ -643,8 +643,6 @@ C:/CLibraries/SFML/include/SFML/Window/WindowStyle.hpp
 C:/Users/flo/Downloads/CLionSFML-master/CLionSFML-master/Graphics.h
 SFML/Graphics.hpp
 -
-string.h
--
 
 C:/Users/flo/Downloads/CLionSFML-master/CLionSFML-master/Model.cpp
 Model.h
@@ -653,10 +651,24 @@ C:/Users/flo/Downloads/CLionSFML-master/CLionSFML-master/Model.h
 C:/Users/flo/Downloads/CLionSFML-master/CLionSFML-master/Model.h
 bits/stdc++.h
 -
-math.h
--
 Graphics.h
 C:/Users/flo/Downloads/CLionSFML-master/CLionSFML-master/Graphics.h
+Point.h
+C:/Users/flo/Downloads/CLionSFML-master/CLionSFML-master/Point.h
+Node.h
+C:/Users/flo/Downloads/CLionSFML-master/CLionSFML-master/Node.h
+
+C:/Users/flo/Downloads/CLionSFML-master/CLionSFML-master/Node.h
+Point.h
+C:/Users/flo/Downloads/CLionSFML-master/CLionSFML-master/Point.h
+Utils.h
+C:/Users/flo/Downloads/CLionSFML-master/CLionSFML-master/Utils.h
+
+C:/Users/flo/Downloads/CLionSFML-master/CLionSFML-master/Point.h
+math.h
+-
+
+C:/Users/flo/Downloads/CLionSFML-master/CLionSFML-master/Utils.h
 
 C:/Users/flo/Downloads/CLionSFML-master/CLionSFML-master/main.cpp
 Graphics.h

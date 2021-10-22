@@ -196,6 +196,33 @@ Model.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\NomProjet.dir\build.make CMakeFiles/NomProjet.dir/Model.cpp.s
 .PHONY : Model.cpp.s
 
+Node.obj: Node.cpp.obj
+
+.PHONY : Node.obj
+
+# target to build an object file
+Node.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\NomProjet.dir\build.make CMakeFiles/NomProjet.dir/Node.cpp.obj
+.PHONY : Node.cpp.obj
+
+Node.i: Node.cpp.i
+
+.PHONY : Node.i
+
+# target to preprocess a source file
+Node.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\NomProjet.dir\build.make CMakeFiles/NomProjet.dir/Node.cpp.i
+.PHONY : Node.cpp.i
+
+Node.s: Node.cpp.s
+
+.PHONY : Node.s
+
+# target to generate assembly for a file
+Node.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\NomProjet.dir\build.make CMakeFiles/NomProjet.dir/Node.cpp.s
+.PHONY : Node.cpp.s
+
 main.obj: main.cpp.obj
 
 .PHONY : main.obj
@@ -238,6 +265,9 @@ help:
 	@echo ... Model.obj
 	@echo ... Model.i
 	@echo ... Model.s
+	@echo ... Node.obj
+	@echo ... Node.i
+	@echo ... Node.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
