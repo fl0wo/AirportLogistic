@@ -26,13 +26,11 @@ void draw(){
 }
 
 int main(){
-
-    m.initModel();
-
     g.initWindow(600, 600,"Airport Logistic");
-
-
+    m.initModel();
+    m.gg=g;// DEBUG ONLY
     g.bindOnInit(draw);
+
     //g.bindAfterInit(printInfos)
 
     return 0;

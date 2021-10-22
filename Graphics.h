@@ -14,7 +14,7 @@ using namespace std;
 class Graphics {
 
     RenderWindow* window;
-    const int WINDOW_BORDER=10; // percentage border
+    int WINDOW_BORDER=10; // percentage border
 
 public:
     void initWindow(int W,int H,string title){
