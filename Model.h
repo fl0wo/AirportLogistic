@@ -29,6 +29,10 @@ class Model {
         Point a;
         Point b;
         Point c;
+
+        void printDistances() {
+            cout << a.distanceFromPoint(b) << " " << b.distanceFromPoint(c) << " ";
+        }
     };
 
     Edge g[MAXN][MAXN];
@@ -41,16 +45,14 @@ class Model {
     void connectEdges(){
 
         g[A.id][B.id] = {A.distanceFromPoint(B)}; // walk
-        g[A.id][A.id] = {0}; // A is already connected to him self
-
         // connect all lines together
         for (Node l : tras) {
-            g[A.id][l.getId()] = {reduceToNode(A).distanceFromNode(l)}; // walk
+            //g[A.id][l.getId()] = {reduceToNode(A).distanceFromNode(l)}; // walk
             for(Node other : tras)
                 if (l.getId() != other.getId())
                     g[l.getId()][other.getId()] = {l.distanceFromNode(other)}; // change transport
 
-            g[l.getId()][B.id] = {l.distanceFromNode(reduceToNode(B))}; // walk
+            //g[l.getId()][B.id] = {l.distanceFromNode(reduceToNode(B))}; // walk
         }
     }
 
@@ -163,8 +165,6 @@ public:
         return hypot(x1-x2,y1-y2);
     }
 
-
-
     double dij() {
         coda.clear();
         pi.clear();
@@ -194,12 +194,12 @@ public:
                 Point to = arch.b;
                 Point lastTouch = arch.c;
 
-                double hypot = to.distanceFromPoint(lastTouch);
+                //DEBUG_DRAW.drawLine(to.x + 2, to.y + 2 ,from.x+2,from.y+2,"red");
 
-                // ULTIMO TRASPORTATORE PRESO
-                // DEBUG_DRAW.drawLine(to.x + 2, to.y + 2 ,from.x+2,from.y+2,"red");
-                // ULTIMO TRATTO A PIEDI
-                // if (to.liesOn(from,to)) DEBUG_DRAW.drawLine(to.x + 2,to.y + 2,lastTouch.x + 2, lastTouch.y + 2,"yellow");
+                //if(x==A.id)
+                //if (to.liesOn(from,to)) DEBUG_DRAW.drawLine(to.x + 2,to.y + 2,lastTouch.x + 2, lastTouch.y + 2,"yellow");
+
+                double hypot = to.distanceFromPoint(lastTouch);
 
                 double zed = hypot + distanceBetween(from.x,from.y,to.x,to.y) / TRANSPORTER_SPEED;
                 // relax
@@ -220,9 +220,22 @@ public:
         Point lastTouch = latestJoint.second;
 
         Point intersect = lastTouch.closestPointToInfiniteLine(tFrom, tTo);
-        double cat1 = Utils::calcCat1(lastTouch.distanceFromInfiniteLine(tFrom, tTo));
-        Point t_to2 = Point::followByWithBounds(cat1, intersect, tFrom);
 
+        double cat1 = Utils::calcCat1(lastTouch.distanceFromInfiniteLine(tFrom, tTo));
+
+        double distanceOnTransporter = intersect.distanceFromPoint(tFrom) - cat1;
+
+        Point t_to2 = tFrom.followByWithInnerBounds(distanceOnTransporter, tFrom,tTo);
+
+        if(false)
+        if (from == A.id){
+            //Point oIntersect = A.closestPointToInfiniteLine(tras[to].da, tras[to].a); // ?????? him instead lastTouch?
+            double cat3 = Utils::calcCat1(A.distanceFromInfiniteLine(tras[to].da, tras[to].a));
+            Point lastTouch2 = lastTouch.followByWithInnerBounds(cat3,tras[to].da, tras[to].a);
+            //DEBUG_DRAW.drawPoint(lastTouch2.x,lastTouch2.y,2,"blue");
+
+            return {tFrom, t_to2, lastTouch2};
+        }
         return {tFrom, t_to2, lastTouch};
     }
 
@@ -231,16 +244,17 @@ public:
 
         int cur=B.id;
         vector<Point> points;
-
+        cout<<"(";
         while(cur!=A.id) {
             //pair<Point,Point> connector = tras[cur].pathToNode(tras[pi[cur]]);
             Triangle connector = calcArch(pi[cur],cur);
             cur=pi[cur];
             points.emplace_back(connector.c);
             points.emplace_back(connector.b);
-            points.emplace_back(connector.a);
 
+            connector.printDistances();
         }
+        cout << ")\n";
 
         vector<pii> path;
         REP(i,points.size()) path.push_back(puntoToPii(points[i]));
@@ -254,6 +268,11 @@ public:
 };
 
 /*
+ *
+ * // ULTIMO TRASPORTATORE PRESO
+                // DEBUG_DRAW.drawLine(to.x + 2, to.y + 2 ,from.x+2,from.y+2,"red");
+                // ULTIMO TRATTO A PIEDI
+                // if (to.liesOn(from,to)) DEBUG_DRAW.drawLine(to.x + 2,to.y + 2,lastTouch.x + 2, lastTouch.y + 2,"yellow");
 
                  // else zed = g[x][i].time + distanceBetween(t_from.x,t_from.y,t_to.x,t_to.y) / TRANSPORTER_SPEED;
 

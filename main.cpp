@@ -1,11 +1,14 @@
 #include "Graphics.h"
 #include "Model.h"
 
+#include <bits/stdc++.h>
+
 #define DEBUG_DRAW_TRUE true
 
 using namespace sf;
+using namespace std;
 
-Model m("C:\\Users\\flo\\Downloads\\CLionSFML-master\\CLionSFML-master\\input_files\\in1.txt",DEBUG_DRAW_TRUE);
+Model m("C:\\Users\\flo\\Downloads\\CLionSFML-master\\CLionSFML-master\\input_files\\in4.txt",DEBUG_DRAW_TRUE);
 Graphics g;
 
 void draw(){
@@ -20,8 +23,10 @@ void draw(){
 
     vector<pii> path = m.shortestPath();
 
+    int off = 3;
+
     REP(i,path.size()-1){
-        g.drawLine(path[i].x_,path[i].y_,path[i+1].x_,path[i+1].y_,i%2==0 ? "magenta" : "green");
+        g.drawLine(path[i].x_+off,path[i].y_+off,path[i+1].x_+off,path[i+1].y_+off,i%2==0 ? "green" : "green");
     }
 
     printf("total : %.10f\n",m.shortestPathTimeSec());

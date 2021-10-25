@@ -105,7 +105,7 @@ struct Point{
         return x==p.x && y==p.y;
     }
 
-    static Point followBy(double distance, Point a, Point b) {
+    Point followBy(double distance, Point a, Point b) {
 
         double vx = b.x - a.x;
         double vy = b.y - a.y;
@@ -121,18 +121,29 @@ struct Point{
         return {px,py};
     }
 
-    static Point followByWithBounds(double distance, Point a, Point b) {
+    Point followByWithInnerBounds(double distance, Point a, Point b) {
         double mag = hypot(b.x - a.x,b.y - a.y);
         if (distance>=mag) return b;
-        if (distance<0) return a;
+        if (distance<=0) return a;
         return followBy(distance,a,b);
+    }
+
+    Point followByWithBounds(double distance,Point i, Point a,Point b) {
+        Point letsSee = i.followByWithInnerBounds(distance,i,a);
+
+        if (i.liesOn(a,b))
+            return letsSee;
+
+        if (letsSee.liesOn(a,b))return letsSee;
+        if (letsSee.distanceFromPoint(a) < letsSee.distanceFromPoint(b))return a;
+
+        else return b;
     }
 
     bool liesOn(Point a,Point b){
         double ab = a.distanceFromPoint(b);
         double ac = distanceFromPoint(a);
         double cb = distanceFromPoint(b);
-
         return ((ac + cb) - ab) < 0.1;
     }
 

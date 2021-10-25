@@ -21,8 +21,8 @@ public:
 
         // REMOVE
         View view;
-        view.setCenter(mapPoint(50, 50));
-        view.setSize(Vector2f(300, 300));
+        view.setCenter(mapPoint(100, 100));
+        view.setSize(Vector2f(200, 200));
         window->setView(view);
 
     }
@@ -66,6 +66,7 @@ public:
         if (colorName == "white") return Color::White;
         if (colorName == "magenta") return Color::Magenta;
         if (colorName == "yellow") return Color::Yellow;
+        if (colorName == "blue") return Color::Blue;
 
         return Color::Green;
     }
