@@ -186,7 +186,8 @@ public:
             // single source single destination ?
             if(x==B.id) return d[B.id];
 
-            REP (i,L+2) {
+            int LL = tras.size();
+            REP(i,LL){
                 if (i==x || i==A.id) continue;
 
                 Triangle arch = calcArch(x,i);

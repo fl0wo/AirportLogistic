@@ -40,7 +40,6 @@ void drawOnMouseMove(pii mousePosOnClick,pii mouseCurrentPos) {
 }
 
 void onMouseLeftClick(pii firstMouseClick,pii secondMouseClick) {
-
     pii first = g.deMapPoint(firstMouseClick.x_,firstMouseClick.y_);
     pii second = g.deMapPoint(secondMouseClick.x_,secondMouseClick.y_);
 
