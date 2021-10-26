@@ -24,7 +24,7 @@ public:
     unsigned long lastDrawMs;
     Texture texture;
     bool loadedTexture = false;
-    float ANIMATION_MS = 100;
+    float ANIMATION_MS = 200;
 
     Conveyor(float x1, float y1, float x2, float y2,unsigned long clock = GETMS) {
         this->x1=x1;
