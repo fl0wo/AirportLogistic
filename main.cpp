@@ -13,7 +13,6 @@ Graphics g;
 
 void draw(){
     for(pair<pii,pii> linea : m.getLines()){
-        //g.drawLine(linea.da_.x_, linea.da_.y_,linea.a_.x_,linea.a_.y_);
         g.drawTransporter(linea.da_.x_, linea.da_.y_,linea.a_.x_,linea.a_.y_);
     }
     pii A = m.getStartPoint();
@@ -25,12 +24,11 @@ void draw(){
 
     int off = 3;
 
+    g.drawTransporterRaw(c.lastMouseClick.x_, c.lastMouseClick.y_,c.curMousePos.x_,c.curMousePos.y_);
+
     REP(i,path.size()-1){
         g.drawLine(path[i].x_+off,path[i].y_+off,path[i+1].x_+off,path[i+1].y_+off,i%2==0 ? "green" : "green");
     }
-
-    g.drawTransporterRaw(c.lastMouseClick.x_, c.lastMouseClick.y_,c.curMousePos.x_,c.curMousePos.y_);
-
     //printf("total : %.10f\n",m.shortestPathTimeSec());
 }
 
@@ -60,4 +58,3 @@ int main(){
 
     return 0;
 }
-

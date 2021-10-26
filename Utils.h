@@ -37,9 +37,7 @@ struct Utils{
         float wy = y1-y2;
         float angleInRadian = std::atan2(wx,wy);
         float angleInDegree = angleInRadian*180.0F/PII;
-        if (angleInDegree<0) angleInDegree=-angleInDegree-90;
-        else angleInDegree=-angleInDegree+90;
-        return angleInDegree;
+        return -angleInDegree+90;
     }
 
 };

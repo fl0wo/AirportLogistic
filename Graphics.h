@@ -7,6 +7,7 @@
 
 #include <SFML/Graphics.hpp>
 #include "Conveyor.h"
+#include "ThickLine.h"
 
 using namespace sf;
 using namespace std;
@@ -51,10 +52,9 @@ public:
         }
     }
 
-    void drawLine(int x1, int y1, int x2, int y2,string color="black") {
-        Vertex line[] = {Vertex(mapPoint(x1, y1),mapColor(color)),
-                         Vertex(mapPoint(x2, y2),mapColor(color))};
-        window->draw(line, 2, Lines);
+    void drawLine(int x1, int y1, int x2, int y2,string color="green",float thick = 1.0) {
+        ThickLine line = ThickLine(mapPoint(x1, y1),mapPoint(x2, y2), thick, mapColor(color));
+        window->draw(line);
     }
 
     void drawTransporter(int x1, int y1, int x2, int y2,string color="black") {
@@ -65,13 +65,6 @@ public:
     void drawTransporterRaw(int x1, int y1, int x2, int y2,string color="black") {
         Conveyor belt = Conveyor(x1, y1,x2, y2);
         window->draw(belt);
-    }
-
-    void drawLineRaw(float x1, float y1, float x2, float y2,string color="black") {
-        Vertex line[] = {Vertex(Vector2f(x1, y1),mapColor(color)),
-                         Vertex(Vector2f(x2, y2),mapColor(color))};
-
-        window->draw(line, 2, Lines);
     }
 
     Vector2f mapPoint(float x,float y){

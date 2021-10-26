@@ -646,9 +646,27 @@ SFML/Graphics/RenderWindow.hpp
 utility
 -
 
+C:/Users/flo/Downloads/CLionSFML-master/CLionSFML-master/Conveyor.h
+SFML/System/Vector2.hpp
+-
+cmath
+-
+iostream
+-
+cstdlib
+-
+Utils.h
+C:/Users/flo/Downloads/CLionSFML-master/CLionSFML-master/Utils.h
+ThickLine.h
+C:/Users/flo/Downloads/CLionSFML-master/CLionSFML-master/ThickLine.h
+
 C:/Users/flo/Downloads/CLionSFML-master/CLionSFML-master/Graphics.h
 SFML/Graphics.hpp
 -
+Conveyor.h
+C:/Users/flo/Downloads/CLionSFML-master/CLionSFML-master/Conveyor.h
+ThickLine.h
+C:/Users/flo/Downloads/CLionSFML-master/CLionSFML-master/ThickLine.h
 
 C:/Users/flo/Downloads/CLionSFML-master/CLionSFML-master/Model.h
 Graphics.h
@@ -660,6 +678,12 @@ C:/Users/flo/Downloads/CLionSFML-master/CLionSFML-master/Node.h
 bits/stdc++.h
 -
 
+C:/Users/flo/Downloads/CLionSFML-master/CLionSFML-master/Node.cpp
+iostream
+-
+Node.h
+C:/Users/flo/Downloads/CLionSFML-master/CLionSFML-master/Node.h
+
 C:/Users/flo/Downloads/CLionSFML-master/CLionSFML-master/Node.h
 Point.h
 C:/Users/flo/Downloads/CLionSFML-master/CLionSFML-master/Point.h
@@ -669,6 +693,22 @@ C:/Users/flo/Downloads/CLionSFML-master/CLionSFML-master/Utils.h
 C:/Users/flo/Downloads/CLionSFML-master/CLionSFML-master/Point.h
 math.h
 -
+
+C:/Users/flo/Downloads/CLionSFML-master/CLionSFML-master/ThickLine.h
+SFML/System/Vector2.hpp
+-
+cmath
+-
+iostream
+-
+cstdlib
+-
+SFML/Graphics/Texture.hpp
+-
+SFML/Graphics/RectangleShape.hpp
+-
+Utils.h
+C:/Users/flo/Downloads/CLionSFML-master/CLionSFML-master/Utils.h
 
 C:/Users/flo/Downloads/CLionSFML-master/CLionSFML-master/Utils.h
 

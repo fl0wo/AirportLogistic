@@ -78,10 +78,12 @@ CMakeFiles/NomProjet.dir/main.cpp.obj: C:/CLibraries/SFML/include/SFML/Window/Wi
 CMakeFiles/NomProjet.dir/main.cpp.obj: C:/CLibraries/SFML/include/SFML/Window/WindowHandle.hpp
 CMakeFiles/NomProjet.dir/main.cpp.obj: C:/CLibraries/SFML/include/SFML/Window/WindowStyle.hpp
 CMakeFiles/NomProjet.dir/main.cpp.obj: ../Controller.h
+CMakeFiles/NomProjet.dir/main.cpp.obj: ../Conveyor.h
 CMakeFiles/NomProjet.dir/main.cpp.obj: ../Graphics.h
 CMakeFiles/NomProjet.dir/main.cpp.obj: ../Model.h
 CMakeFiles/NomProjet.dir/main.cpp.obj: ../Node.h
 CMakeFiles/NomProjet.dir/main.cpp.obj: ../Point.h
+CMakeFiles/NomProjet.dir/main.cpp.obj: ../ThickLine.h
 CMakeFiles/NomProjet.dir/main.cpp.obj: ../Utils.h
 CMakeFiles/NomProjet.dir/main.cpp.obj: ../main.cpp
 

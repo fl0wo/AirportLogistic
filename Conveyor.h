@@ -11,15 +11,17 @@
 #include <iostream>
 #include <cstdlib>
 #include "Utils.h"
+#include "ThickLine.h"
 
 using namespace sf;
 
 class Conveyor : public Drawable{
+private:
+    string PATH_SPRITE = "C:\\Users\\flo\\Downloads\\CLionSFML-master\\CLionSFML-master\\input_files\\conveyor_sprite_15_white.png";
 
 public:
 
     float x1,y1,x2,y2;
-    float RECT_HEIGHT = 15;
 
     Conveyor(float x1, float y1, float x2, float y2) {
         this->x1=x1;
@@ -36,16 +38,14 @@ public:
     }
 
     void draw(RenderTarget &target, RenderStates states) const override {
+        ThickLine line(x1,y1,x2,y2);
+        Texture texture;
 
-        float angleInDegree = Utils::angleBetween(x1,y1,x2,y2);
-        float rectWidth = Utils::pDistances(x1,y1,x2,y2);
-
-        RectangleShape line({rectWidth, RECT_HEIGHT});
-
-        line.setOrigin(rectWidth/2,RECT_HEIGHT/2);
-        line.setPosition(((x1+x2)/2), ((y1+y2)/2));
-        line.setFillColor(sf::Color::Black);
-        line.rotate(angleInDegree);
+        if(texture.loadFromFile(PATH_SPRITE)) {
+            texture.setSmooth(true);
+            texture.setRepeated(true);
+            line.applySprite(&texture);
+        }
 
         target.draw(line,states);
     }

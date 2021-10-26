@@ -105,6 +105,9 @@
 		<Unit filename="C:/Users/flo/Downloads/CLionSFML-master/CLionSFML-master/Point.h">
 			<Option target="NomProjet"/>
 		</Unit>
+		<Unit filename="C:/Users/flo/Downloads/CLionSFML-master/CLionSFML-master/ThickLine.h">
+			<Option target="NomProjet"/>
+		</Unit>
 		<Unit filename="C:/Users/flo/Downloads/CLionSFML-master/CLionSFML-master/Utils.h">
 			<Option target="NomProjet"/>
 		</Unit>
