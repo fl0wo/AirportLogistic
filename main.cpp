@@ -1,6 +1,6 @@
-#include "Graphics.h"
-#include "Model.h"
-#include "Controller.h"
+#include "src/Graphics.h"
+#include "src/logic/Model.h"
+#include "src/Controller.h"
 
 #define DEBUG_DRAW_TRUE false
 

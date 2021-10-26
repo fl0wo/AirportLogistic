@@ -6,8 +6,8 @@
 #define NOMPROJET_GRAPHICS_H
 
 #include <SFML/Graphics.hpp>
-#include "Conveyor.h"
-#include "ThickLine.h"
+#include "drawables/Conveyor.h"
+#include "drawables/ThickLine.h"
 
 using namespace sf;
 using namespace std;

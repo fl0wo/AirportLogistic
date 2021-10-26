@@ -90,30 +90,30 @@ CMakeFiles/NomProjet.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/NomProjet.dir/main.cpp.s"
 	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\flo\Downloads\CLionSFML-master\CLionSFML-master\main.cpp -o CMakeFiles\NomProjet.dir\main.cpp.s
 
-CMakeFiles/NomProjet.dir/Node.cpp.obj: CMakeFiles/NomProjet.dir/flags.make
-CMakeFiles/NomProjet.dir/Node.cpp.obj: CMakeFiles/NomProjet.dir/includes_CXX.rsp
-CMakeFiles/NomProjet.dir/Node.cpp.obj: ../Node.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\flo\Downloads\CLionSFML-master\CLionSFML-master\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/NomProjet.dir/Node.cpp.obj"
-	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\NomProjet.dir\Node.cpp.obj -c C:\Users\flo\Downloads\CLionSFML-master\CLionSFML-master\Node.cpp
+CMakeFiles/NomProjet.dir/src/logic/Node.cpp.obj: CMakeFiles/NomProjet.dir/flags.make
+CMakeFiles/NomProjet.dir/src/logic/Node.cpp.obj: CMakeFiles/NomProjet.dir/includes_CXX.rsp
+CMakeFiles/NomProjet.dir/src/logic/Node.cpp.obj: ../src/logic/Node.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\flo\Downloads\CLionSFML-master\CLionSFML-master\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/NomProjet.dir/src/logic/Node.cpp.obj"
+	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\NomProjet.dir\src\logic\Node.cpp.obj -c C:\Users\flo\Downloads\CLionSFML-master\CLionSFML-master\src\logic\Node.cpp
 
-CMakeFiles/NomProjet.dir/Node.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/NomProjet.dir/Node.cpp.i"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\flo\Downloads\CLionSFML-master\CLionSFML-master\Node.cpp > CMakeFiles\NomProjet.dir\Node.cpp.i
+CMakeFiles/NomProjet.dir/src/logic/Node.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/NomProjet.dir/src/logic/Node.cpp.i"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\flo\Downloads\CLionSFML-master\CLionSFML-master\src\logic\Node.cpp > CMakeFiles\NomProjet.dir\src\logic\Node.cpp.i
 
-CMakeFiles/NomProjet.dir/Node.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/NomProjet.dir/Node.cpp.s"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\flo\Downloads\CLionSFML-master\CLionSFML-master\Node.cpp -o CMakeFiles\NomProjet.dir\Node.cpp.s
+CMakeFiles/NomProjet.dir/src/logic/Node.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/NomProjet.dir/src/logic/Node.cpp.s"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\flo\Downloads\CLionSFML-master\CLionSFML-master\src\logic\Node.cpp -o CMakeFiles\NomProjet.dir\src\logic\Node.cpp.s
 
 # Object files for target NomProjet
 NomProjet_OBJECTS = \
 "CMakeFiles/NomProjet.dir/main.cpp.obj" \
-"CMakeFiles/NomProjet.dir/Node.cpp.obj"
+"CMakeFiles/NomProjet.dir/src/logic/Node.cpp.obj"
 
 # External object files for target NomProjet
 NomProjet_EXTERNAL_OBJECTS =
 
 NomProjet.exe: CMakeFiles/NomProjet.dir/main.cpp.obj
-NomProjet.exe: CMakeFiles/NomProjet.dir/Node.cpp.obj
+NomProjet.exe: CMakeFiles/NomProjet.dir/src/logic/Node.cpp.obj
 NomProjet.exe: CMakeFiles/NomProjet.dir/build.make
 NomProjet.exe: C:/CLibraries/SFML/lib/libsfml-audio-s-d.a
 NomProjet.exe: C:/CLibraries/SFML/lib/libsfml-graphics-s-d.a

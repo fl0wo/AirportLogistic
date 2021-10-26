@@ -11,7 +11,7 @@
 #include <cstdlib>
 #include <SFML/Graphics/Texture.hpp>
 #include <SFML/Graphics/RectangleShape.hpp>
-#include "Utils.h"
+#include "../logic/Utils.h"
 
 using namespace sf;
 

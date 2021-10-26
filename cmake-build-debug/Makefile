@@ -142,33 +142,6 @@ NomProjet/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\NomProjet.dir\build.make CMakeFiles/NomProjet.dir/build
 .PHONY : NomProjet/fast
 
-Node.obj: Node.cpp.obj
-
-.PHONY : Node.obj
-
-# target to build an object file
-Node.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\NomProjet.dir\build.make CMakeFiles/NomProjet.dir/Node.cpp.obj
-.PHONY : Node.cpp.obj
-
-Node.i: Node.cpp.i
-
-.PHONY : Node.i
-
-# target to preprocess a source file
-Node.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\NomProjet.dir\build.make CMakeFiles/NomProjet.dir/Node.cpp.i
-.PHONY : Node.cpp.i
-
-Node.s: Node.cpp.s
-
-.PHONY : Node.s
-
-# target to generate assembly for a file
-Node.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\NomProjet.dir\build.make CMakeFiles/NomProjet.dir/Node.cpp.s
-.PHONY : Node.cpp.s
-
 main.obj: main.cpp.obj
 
 .PHONY : main.obj
@@ -196,6 +169,33 @@ main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\NomProjet.dir\build.make CMakeFiles/NomProjet.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+src/logic/Node.obj: src/logic/Node.cpp.obj
+
+.PHONY : src/logic/Node.obj
+
+# target to build an object file
+src/logic/Node.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\NomProjet.dir\build.make CMakeFiles/NomProjet.dir/src/logic/Node.cpp.obj
+.PHONY : src/logic/Node.cpp.obj
+
+src/logic/Node.i: src/logic/Node.cpp.i
+
+.PHONY : src/logic/Node.i
+
+# target to preprocess a source file
+src/logic/Node.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\NomProjet.dir\build.make CMakeFiles/NomProjet.dir/src/logic/Node.cpp.i
+.PHONY : src/logic/Node.cpp.i
+
+src/logic/Node.s: src/logic/Node.cpp.s
+
+.PHONY : src/logic/Node.s
+
+# target to generate assembly for a file
+src/logic/Node.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\NomProjet.dir\build.make CMakeFiles/NomProjet.dir/src/logic/Node.cpp.s
+.PHONY : src/logic/Node.cpp.s
+
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -205,12 +205,12 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... NomProjet
-	@echo ... Node.obj
-	@echo ... Node.i
-	@echo ... Node.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
+	@echo ... src/logic/Node.obj
+	@echo ... src/logic/Node.i
+	@echo ... src/logic/Node.s
 .PHONY : help
 
 

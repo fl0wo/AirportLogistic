@@ -5,7 +5,7 @@
 #ifndef NOMPROJET_MODEL_H
 #define NOMPROJET_MODEL_H
 
-#include "Graphics.h"
+#include "../Graphics.h"
 #include "Point.h"
 #include "Node.h"
 #include<bits/stdc++.h>

@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/NomProjet.dir/Node.cpp.obj"
   "CMakeFiles/NomProjet.dir/main.cpp.obj"
+  "CMakeFiles/NomProjet.dir/src/logic/Node.cpp.obj"
   "NomProjet.exe"
   "NomProjet.exe.manifest"
   "NomProjet.pdb"

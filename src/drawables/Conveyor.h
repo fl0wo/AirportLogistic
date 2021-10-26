@@ -9,7 +9,7 @@
 #include <cmath>
 #include <iostream>
 #include <cstdlib>
-#include "Utils.h"
+#include "../logic/Utils.h"
 #include "ThickLine.h"
 
 using namespace sf;

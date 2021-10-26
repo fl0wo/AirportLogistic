@@ -84,37 +84,37 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="C:/Users/flo/Downloads/CLionSFML-master/CLionSFML-master/Controller.h">
-			<Option target="NomProjet"/>
-		</Unit>
-		<Unit filename="C:/Users/flo/Downloads/CLionSFML-master/CLionSFML-master/Conveyor.h">
-			<Option target="NomProjet"/>
-		</Unit>
-		<Unit filename="C:/Users/flo/Downloads/CLionSFML-master/CLionSFML-master/Graphics.h">
-			<Option target="NomProjet"/>
-		</Unit>
-		<Unit filename="C:/Users/flo/Downloads/CLionSFML-master/CLionSFML-master/Model.h">
-			<Option target="NomProjet"/>
-		</Unit>
-		<Unit filename="C:/Users/flo/Downloads/CLionSFML-master/CLionSFML-master/Node.cpp">
-			<Option target="NomProjet"/>
-		</Unit>
-		<Unit filename="C:/Users/flo/Downloads/CLionSFML-master/CLionSFML-master/Node.h">
-			<Option target="NomProjet"/>
-		</Unit>
-		<Unit filename="C:/Users/flo/Downloads/CLionSFML-master/CLionSFML-master/Point.h">
-			<Option target="NomProjet"/>
-		</Unit>
-		<Unit filename="C:/Users/flo/Downloads/CLionSFML-master/CLionSFML-master/ThickLine.h">
-			<Option target="NomProjet"/>
-		</Unit>
-		<Unit filename="C:/Users/flo/Downloads/CLionSFML-master/CLionSFML-master/Utils.h">
-			<Option target="NomProjet"/>
-		</Unit>
 		<Unit filename="C:/Users/flo/Downloads/CLionSFML-master/CLionSFML-master/input_files/in1.txt">
 			<Option target="NomProjet"/>
 		</Unit>
 		<Unit filename="C:/Users/flo/Downloads/CLionSFML-master/CLionSFML-master/main.cpp">
+			<Option target="NomProjet"/>
+		</Unit>
+		<Unit filename="C:/Users/flo/Downloads/CLionSFML-master/CLionSFML-master/src/Controller.h">
+			<Option target="NomProjet"/>
+		</Unit>
+		<Unit filename="C:/Users/flo/Downloads/CLionSFML-master/CLionSFML-master/src/Graphics.h">
+			<Option target="NomProjet"/>
+		</Unit>
+		<Unit filename="C:/Users/flo/Downloads/CLionSFML-master/CLionSFML-master/src/drawables/Conveyor.h">
+			<Option target="NomProjet"/>
+		</Unit>
+		<Unit filename="C:/Users/flo/Downloads/CLionSFML-master/CLionSFML-master/src/drawables/ThickLine.h">
+			<Option target="NomProjet"/>
+		</Unit>
+		<Unit filename="C:/Users/flo/Downloads/CLionSFML-master/CLionSFML-master/src/logic/Model.h">
+			<Option target="NomProjet"/>
+		</Unit>
+		<Unit filename="C:/Users/flo/Downloads/CLionSFML-master/CLionSFML-master/src/logic/Node.cpp">
+			<Option target="NomProjet"/>
+		</Unit>
+		<Unit filename="C:/Users/flo/Downloads/CLionSFML-master/CLionSFML-master/src/logic/Node.h">
+			<Option target="NomProjet"/>
+		</Unit>
+		<Unit filename="C:/Users/flo/Downloads/CLionSFML-master/CLionSFML-master/src/logic/Point.h">
+			<Option target="NomProjet"/>
+		</Unit>
+		<Unit filename="C:/Users/flo/Downloads/CLionSFML-master/CLionSFML-master/src/logic/Utils.h">
 			<Option target="NomProjet"/>
 		</Unit>
 		<Unit filename="C:/Users/flo/Downloads/CLionSFML-master/CLionSFML-master/CMakeLists.txt">
