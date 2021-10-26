@@ -16,24 +16,31 @@ class Graphics {
     int WINDOW_BORDER=10; // percentage border
 
 public:
+
+    int originXY = 100;
+    int sizeXY = 200;
+
     void initWindow(int W,int H,string title){
         window = new RenderWindow(VideoMode(W, H), title);
 
         // REMOVE
-        View view;
-        view.setCenter(mapPoint(100, 100));
-        view.setSize(Vector2f(200, 200));
+        /*View view;
+        view.setCenter(mapPoint(originXY, originXY));
+        view.setSize(Vector2f(sizeXY, sizeXY));
         window->setView(view);
-
+*/
     }
 
-    void bindOnInit(void (*drawLogic)()) {
+    void bindOnInit(void (*drawLogic)(),void (*controllerLogic)(Event)) {
         while (window->isOpen()) {
             Event event;
 
-            while (window->pollEvent(event))
+            while (window->pollEvent(event)) {
                 if (event.type == sf::Event::Closed)
                     window->close();
+
+                controllerLogic(event);
+            }
 
             window->clear(sf::Color::Black);
             drawLogic();
@@ -50,14 +57,29 @@ public:
         window->draw(line, 2, Lines);
     }
 
-    Vector2f mapPoint(float x,float y){
+    void drawLineRaw(float x1, float y1, float x2, float y2,
+                  string color="white") {
 
+        Vertex line[] = {Vertex(Vector2f(x1, y1),mapColor(color)),
+                         Vertex(Vector2f(x2, y2),mapColor(color))};
+
+        window->draw(line, 2, Lines);
+    }
+
+    Vector2f mapPoint(float x,float y){
         x += window->getSize().x * WINDOW_BORDER / 100;
         y = window->getSize().y -
                 (window->getSize().y*WINDOW_BORDER/100)
                 - y;
-
         return Vector2f(x, y);
+    }
+
+    pair<float,float> deMapPoint(float x,float y){
+        // x : wSize == ? : 200
+        // ? x*200)/wSize
+        //x = (x*sizeXY)/600.0f;
+        //y = (y*sizeXY)/600.0f;
+        return {x,y};
     }
 
     const Color& mapColor(string colorName) {
@@ -76,6 +98,10 @@ public:
         circle.setFillColor(mapColor(color));
         circle.setPosition(mapPoint(x-r,y+r));
         window->draw(circle);
+    }
+
+    RenderWindow* getWindow() {
+        return window;
     }
 
 };

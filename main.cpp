@@ -1,13 +1,13 @@
 #include "Graphics.h"
 #include "Model.h"
-
-#include <bits/stdc++.h>
+#include "Controller.h"
 
 #define DEBUG_DRAW_TRUE true
 
 using namespace sf;
 using namespace std;
 
+Controller c;
 Model m("C:\\Users\\flo\\Downloads\\CLionSFML-master\\CLionSFML-master\\input_files\\in4.txt",DEBUG_DRAW_TRUE);
 Graphics g;
 
@@ -29,14 +29,35 @@ void draw(){
         g.drawLine(path[i].x_+off,path[i].y_+off,path[i+1].x_+off,path[i+1].y_+off,i%2==0 ? "green" : "green");
     }
 
-    printf("total : %.10f\n",m.shortestPathTimeSec());
+    printf("%d %d %d %d\n",c.lastMouseClick.x_, c.lastMouseClick.y_,c.curMousePos.x_,c.curMousePos.y_);
+    g.drawLineRaw(c.lastMouseClick.x_, c.lastMouseClick.y_,c.curMousePos.x_,c.curMousePos.y_);
+
+    //printf("total : %.10f\n",m.shortestPathTimeSec());
+}
+
+void drawOnMouseMove(pii mousePosOnClick,pii mouseCurrentPos) {
+    printf("%d %d %d %d\n",c.lastMouseClick.x_, c.lastMouseClick.y_,c.curMousePos.x_,c.curMousePos.y_);
+    printf("%d %d %d %d\n",mousePosOnClick.x_, mousePosOnClick.y_,mouseCurrentPos.x_,mouseCurrentPos.y_);
+
+}
+
+void onMouseLeftClick(pii first,pii second) {
+    m.addLine(first.x_,first.y_,second.x_,second.y_);
+}
+
+void performMouseCheck(Event e){
+    c.performChecks(e);
 }
 
 int main(){
     g.initWindow(600, 600,"Airport Logistic");
+
     m.initModel();
     m.DEBUG_DRAW=g;// DEBUG ONLY
-    g.bindOnInit(draw);
+
+    c.bindOnMouseLeft(onMouseLeftClick,drawOnMouseMove);
+
+    g.bindOnInit(draw,performMouseCheck);
 
     //g.bindAfterInit(printInfos)
 

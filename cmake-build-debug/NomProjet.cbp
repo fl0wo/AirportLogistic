@@ -84,6 +84,9 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="C:/Users/flo/Downloads/CLionSFML-master/CLionSFML-master/Controller.h">
+			<Option target="NomProjet"/>
+		</Unit>
 		<Unit filename="C:/Users/flo/Downloads/CLionSFML-master/CLionSFML-master/Graphics.h">
 			<Option target="NomProjet"/>
 		</Unit>

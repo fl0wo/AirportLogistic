@@ -5,10 +5,10 @@
 #ifndef NOMPROJET_MODEL_H
 #define NOMPROJET_MODEL_H
 
-#include<bits/stdc++.h>
 #include "Graphics.h"
 #include "Point.h"
 #include "Node.h"
+#include<bits/stdc++.h>
 
 using namespace std;
 
@@ -244,7 +244,7 @@ public:
 
         int cur=B.id;
         vector<Point> points;
-        cout<<"(";
+        //cout<<"(";
         while(cur!=A.id) {
             //pair<Point,Point> connector = tras[cur].pathToNode(tras[pi[cur]]);
             Triangle connector = calcArch(pi[cur],cur);
@@ -252,9 +252,9 @@ public:
             points.emplace_back(connector.c);
             points.emplace_back(connector.b);
 
-            connector.printDistances();
+            //connector.printDistances();
         }
-        cout << ")\n";
+        //cout << ")\n";
 
         vector<pii> path;
         REP(i,points.size()) path.push_back(puntoToPii(points[i]));
@@ -265,6 +265,15 @@ public:
         return d[B.id];
     }
 
+    void addLine(int x1, int y1, int x2, int y2) {
+     //   Point da = {x1,y1};
+     //   Point a = {x2,y2};
+     //   tras.push_back({x1,y1,x2,y2});
+    }
+
+    pii deMapCoord(int x, int y) {
+        return {x,y};
+    }
 };
 
 /*
