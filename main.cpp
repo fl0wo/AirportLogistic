@@ -2,7 +2,7 @@
 #include "Model.h"
 #include "Controller.h"
 
-#define DEBUG_DRAW_TRUE true
+#define DEBUG_DRAW_TRUE false
 
 using namespace sf;
 using namespace std;
@@ -13,7 +13,8 @@ Graphics g;
 
 void draw(){
     for(pair<pii,pii> linea : m.getLines()){
-        g.drawLine(linea.da_.x_, linea.da_.y_,linea.a_.x_,linea.a_.y_);
+        //g.drawLine(linea.da_.x_, linea.da_.y_,linea.a_.x_,linea.a_.y_);
+        g.drawTransporter(linea.da_.x_, linea.da_.y_,linea.a_.x_,linea.a_.y_);
     }
     pii A = m.getStartPoint();
     pii B = m.getEndPoint();
@@ -28,15 +29,11 @@ void draw(){
         g.drawLine(path[i].x_+off,path[i].y_+off,path[i+1].x_+off,path[i+1].y_+off,i%2==0 ? "green" : "green");
     }
 
-    g.drawLineRaw(c.lastMouseClick.x_, c.lastMouseClick.y_,c.curMousePos.x_,c.curMousePos.y_);
+    g.drawTransporterRaw(c.lastMouseClick.x_, c.lastMouseClick.y_,c.curMousePos.x_,c.curMousePos.y_);
 
     //printf("total : %.10f\n",m.shortestPathTimeSec());
 }
 
-void drawOnMouseMove(pii mousePosOnClick,pii mouseCurrentPos) {
-    //printf("%d %d %d %d\n",c.lastMouseClick.x_, c.lastMouseClick.y_,c.curMousePos.x_,c.curMousePos.y_);
-    //printf("%d %d %d %d\n",mousePosOnClick.x_, mousePosOnClick.y_,mouseCurrentPos.x_,mouseCurrentPos.y_);
-}
 
 void onMouseLeftClick(pii firstMouseClick,pii secondMouseClick) {
     pii first = g.deMapPoint(firstMouseClick.x_,firstMouseClick.y_);
@@ -46,6 +43,9 @@ void onMouseLeftClick(pii firstMouseClick,pii secondMouseClick) {
 
 void performMouseCheck(Event e){
     c.performChecks(e);
+}
+
+void drawOnMouseMove(pii mousePosOnClick,pii mouseCurrentPos) {
 }
 
 int main(){

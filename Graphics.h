@@ -6,6 +6,7 @@
 #define NOMPROJET_GRAPHICS_H
 
 #include <SFML/Graphics.hpp>
+#include "Conveyor.h"
 
 using namespace sf;
 using namespace std;
@@ -17,6 +18,7 @@ class Graphics {
 
 public:
 
+    int POINT_RADIUS = 7;
     int originXY = 50;
     int sizeXY = 300;
 
@@ -43,24 +45,29 @@ public:
                 controllerLogic(event);
             }
 
-            window->clear(sf::Color::Black);
+            window->clear(sf::Color::White);
             drawLogic();
             window->display();
         }
     }
 
-    void drawLine(int x1, int y1, int x2, int y2,
-                  string color="white") {
-
+    void drawLine(int x1, int y1, int x2, int y2,string color="black") {
         Vertex line[] = {Vertex(mapPoint(x1, y1),mapColor(color)),
                          Vertex(mapPoint(x2, y2),mapColor(color))};
-
         window->draw(line, 2, Lines);
     }
 
-    void drawLineRaw(float x1, float y1, float x2, float y2,
-                  string color="white") {
+    void drawTransporter(int x1, int y1, int x2, int y2,string color="black") {
+        Conveyor belt = Conveyor(mapPoint(x1, y1),mapPoint(x2, y2));
+        window->draw(belt);
+    }
 
+    void drawTransporterRaw(int x1, int y1, int x2, int y2,string color="black") {
+        Conveyor belt = Conveyor(x1, y1,x2, y2);
+        window->draw(belt);
+    }
+
+    void drawLineRaw(float x1, float y1, float x2, float y2,string color="black") {
         Vertex line[] = {Vertex(Vector2f(x1, y1),mapColor(color)),
                          Vertex(Vector2f(x2, y2),mapColor(color))};
 
@@ -69,9 +76,7 @@ public:
 
     Vector2f mapPoint(float x,float y){
         x += window->getSize().x * WINDOW_BORDER / 100;
-        y = window->getSize().y -
-                (window->getSize().y*WINDOW_BORDER/100)
-                - y;
+        y = window->getSize().y - (window->getSize().y*WINDOW_BORDER / 100) - y;
         return Vector2f(x, y);
     }
 
@@ -94,6 +99,7 @@ public:
         if (colorName == "magenta") return Color::Magenta;
         if (colorName == "yellow") return Color::Yellow;
         if (colorName == "blue") return Color::Blue;
+        if (colorName == "black") return Color::Black;
 
         return Color::Green;
     }
@@ -109,7 +115,6 @@ public:
         return window;
     }
 
-    int POINT_RADIUS = 9;
 };
 
 

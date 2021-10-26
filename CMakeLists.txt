@@ -6,7 +6,7 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14 -static")
 
 set(CMAKE_CXX_STANDARD 14)
 
-set(SOURCE_FILES main.cpp Graphics.h Model.h input_files/in1.txt Point.h Node.h Node.cpp Utils.h Controller.h)
+set(SOURCE_FILES main.cpp Graphics.h Model.h input_files/in1.txt Point.h Node.h Node.cpp Utils.h Controller.h Conveyor.h)
 
 if (CMAKE_BUILD_TYPE STREQUAL "Release")
     add_executable(${PROJECT_NAME} WIN32 ${SOURCE_FILES})

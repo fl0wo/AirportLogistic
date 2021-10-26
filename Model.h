@@ -170,7 +170,8 @@ public:
                 //DEBUG_DRAW.drawLine(to.x + 2, to.y + 2 ,from.x+2,from.y+2,"red");
 
                 //if(x==A.id)
-                //if (to.liesOn(from,to)) DEBUG_DRAW.drawLine(to.x + 2,to.y + 2,lastTouch.x + 2, lastTouch.y + 2,"yellow");
+                //if (to.liesOn(from,to))
+                // DEBUG_DRAW.drawLine(to.x + 2,to.y + 2,lastTouch.x + 2, lastTouch.y + 2,"yellow");
 
                 double hypot = to.distanceFromPoint(lastTouch);
 
@@ -198,21 +199,17 @@ public:
         double distanceOnTransporter = intersect.distanceFromPoint(tFrom) - cat1;
 
         Point t_to2 = tFrom.followByWithInnerBounds(distanceOnTransporter, tFrom,tTo);
-/*
-        DEBUG_DRAW.drawPoint(tFrom.x, tFrom.y,5,"yellow");
-        DEBUG_DRAW.drawPoint(t_to2.x+1, t_to2.y+1,5,"red");
-        DEBUG_DRAW.drawPoint(lastTouch.x+2, lastTouch.y+2,5,"magenta");
-*/
-
-        DEBUG_DRAW.drawPoint(tras[to].a.x + 1, tras[to].a.y + 1, 7, "red");
-        DEBUG_DRAW.drawPoint(tras[to].da.x + 1, tras[to].da.y + 1, 7, "red");
 
         double basedDistance = lastTouch.distanceFromPoint(tras[to].da);
         double basedCat1 = Utils::calcCat1(lastTouch.distanceFromPoint(tras[from].a));
 
         lastTouch = lastTouch.followByWithInnerBounds(basedDistance + basedCat1,tras[to].da,tras[to].a);
 
-        //tFrom = lastTouch.followByWithInnerBounds(50, tFrom,tTo);
+        if (debugDrawEnabled)
+                DEBUG_DRAW.drawPoint(tFrom.x, tFrom.y,3,"blue"),
+                DEBUG_DRAW.drawPoint(t_to2.x, t_to2.y,3,"red"),
+                DEBUG_DRAW.drawPoint(lastTouch.x, lastTouch.y,3,"magenta");
+
 
         return {tFrom, t_to2, lastTouch};
     }
@@ -230,9 +227,9 @@ public:
             points.emplace_back(connector.c);
             points.emplace_back(connector.b);
 
-            DEBUG_DRAW.drawPoint(connector.b.x, connector.b.y,5,"yellow");
+            if (debugDrawEnabled) DEBUG_DRAW.drawPoint(connector.b.x, connector.b.y,5,"yellow");
             //DEBUG_DRAW.drawPoint(connector.c.x+1, connector.c.y+1,5,"red");
-            DEBUG_DRAW.drawPoint(connector.c.x+2, connector.c.y+2,5,"magenta");
+            if (debugDrawEnabled) DEBUG_DRAW.drawPoint(connector.c.x+2, connector.c.y+2,5,"magenta");
 
             //connector.printDistances();
         }
