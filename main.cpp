@@ -8,7 +8,7 @@ using namespace sf;
 using namespace std;
 
 Controller c;
-Model m("C:\\Users\\flo\\Downloads\\CLionSFML-master\\CLionSFML-master\\input_files\\in2.txt",DEBUG_DRAW_TRUE);
+Model m("C:\\Users\\flo\\Downloads\\CLionSFML-master\\CLionSFML-master\\input_files\\in4.txt",DEBUG_DRAW_TRUE);
 Graphics g;
 
 void draw(){

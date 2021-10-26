@@ -24,11 +24,12 @@ public:
         window = new RenderWindow(VideoMode(W, H), title);
 
         // REMOVE
+        /*
         View view;
         view.setCenter(mapPoint(originXY, originXY));
         view.setSize(Vector2f(sizeXY, sizeXY));
         window->setView(view);
-
+*/
     }
 
     void bindOnInit(void (*drawLogic)(),void (*controllerLogic)(Event)) {
