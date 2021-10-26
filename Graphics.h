@@ -16,6 +16,7 @@ class Graphics {
 
     RenderWindow* window;
     int WINDOW_BORDER=0; // percentage border
+    unsigned long clock; // defines the speed of animations
 
 public:
 
@@ -25,7 +26,7 @@ public:
 
     void initWindow(int W,int H,string title){
         window = new RenderWindow(VideoMode(W, H), title);
-
+        clock = GETMS;
         // REMOVE
         /*
         View view;
@@ -52,19 +53,21 @@ public:
         }
     }
 
-    void drawLine(int x1, int y1, int x2, int y2,string color="green",float thick = 1.0) {
+    void drawLine(int x1, int y1, int x2, int y2,string color="green",float thick = 4.0) {
         ThickLine line = ThickLine(mapPoint(x1, y1),mapPoint(x2, y2), thick, mapColor(color));
         window->draw(line);
     }
 
     void drawTransporter(int x1, int y1, int x2, int y2,string color="black") {
-        Conveyor belt = Conveyor(mapPoint(x1, y1),mapPoint(x2, y2));
-        window->draw(belt);
+        Conveyor belt = Conveyor(mapPoint(x1, y1),mapPoint(x2, y2),clock);
+        //window->draw(belt);
+        belt.drawInto(window);
     }
 
     void drawTransporterRaw(int x1, int y1, int x2, int y2,string color="black") {
-        Conveyor belt = Conveyor(x1, y1,x2, y2);
-        window->draw(belt);
+        Conveyor belt = Conveyor(x1, y1,x2, y2,clock);
+        //window->draw(belt);
+        belt.drawInto(window);
     }
 
     Vector2f mapPoint(float x,float y){

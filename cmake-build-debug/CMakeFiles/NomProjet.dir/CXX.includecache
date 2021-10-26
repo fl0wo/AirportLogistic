@@ -678,12 +678,6 @@ C:/Users/flo/Downloads/CLionSFML-master/CLionSFML-master/Node.h
 bits/stdc++.h
 -
 
-C:/Users/flo/Downloads/CLionSFML-master/CLionSFML-master/Node.cpp
-iostream
--
-Node.h
-C:/Users/flo/Downloads/CLionSFML-master/CLionSFML-master/Node.h
-
 C:/Users/flo/Downloads/CLionSFML-master/CLionSFML-master/Node.h
 Point.h
 C:/Users/flo/Downloads/CLionSFML-master/CLionSFML-master/Point.h
@@ -711,6 +705,12 @@ Utils.h
 C:/Users/flo/Downloads/CLionSFML-master/CLionSFML-master/Utils.h
 
 C:/Users/flo/Downloads/CLionSFML-master/CLionSFML-master/Utils.h
+SFML/Graphics.hpp
+-
+chrono
+-
+ctime
+-
 
 C:/Users/flo/Downloads/CLionSFML-master/CLionSFML-master/main.cpp
 Graphics.h

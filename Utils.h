@@ -5,6 +5,10 @@
 #ifndef NOMPROJET_UTILS_H
 #define NOMPROJET_UTILS_H
 
+#include <SFML/Graphics.hpp>
+#include <chrono>
+#include <ctime>
+
 #define MAXN 1000
 #define x_ first
 #define y_ second
@@ -15,8 +19,11 @@
 #define REP(i,n) FOR(i,0,n-1)
 #define abs2(a) (a<0?-a:a)
 #define PII 3.141592653589793238463
+#define GETMS  std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count()
+
 
 using namespace std;
+using namespace sf;
 
 typedef pair<int,int> pii;
 
@@ -40,6 +47,23 @@ struct Utils{
         return -angleInDegree+90;
     }
 
+    static unsigned long getCurrentMs() {
+        unsigned long now = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
+        return now;
+    }
+
+    static Image translateImage(Image image, int offsetPixelsX, int offsetPixelsY) {
+        sf::Image img;
+        int W = image.getSize().x;
+        int H = image.getSize().y;
+        img.create(W, H);
+        REP(x,W) {
+            REP(y,H) {
+                img.setPixel(x, y, image.getPixel((x+offsetPixelsX)%W,(y+offsetPixelsY)%H));
+            }
+        }
+        return img;
+    }
 };
 
 

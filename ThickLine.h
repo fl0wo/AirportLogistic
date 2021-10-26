@@ -24,7 +24,7 @@ public:
     Color color;
     Texture* texture = NULL;
 
-    ThickLine(float x1, float y1, float x2, float y2,float thick = 15,Color color = Color::Black) {
+    ThickLine(float x1, float y1, float x2, float y2,float thick = 20,Color color = Color::Black) {
         this->x1=x1;
         this->y1=y1;
         this->x2=x2;
@@ -33,7 +33,7 @@ public:
         this->color = color;
     }
 
-    ThickLine(Vector2<float> p1, Vector2<float> p2,float thick = 15,Color color = Color::Black){
+    ThickLine(Vector2<float> p1, Vector2<float> p2,float thick = 20,Color color = Color::Black){
         this->x1=p1.x;
         this->y1=p1.y;
         this->x2=p2.x;
@@ -81,12 +81,11 @@ public:
     Sprite createSprite(float angle,float rectWidth,float rectHeight,float originX,float originY,float posX,float posY) const {
         Sprite line;
         line.setTextureRect({ 0, 0, static_cast<int>(rectWidth), static_cast<int>(rectHeight) });
-        line.setScale(-1,1);
+        //line.setScale(1,1);
         line.setOrigin(originX, originY);
         line.setPosition(posX, posY);
         line.rotate(angle);
         line.setTexture(*texture);
-        cout << "qui";
         return line;
     }
 

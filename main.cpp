@@ -58,3 +58,45 @@ int main(){
 
     return 0;
 }
+
+
+int main2(int, char const**)
+{
+    sf::RenderWindow window(sf::VideoMode(800, 600), "SFML window");
+
+    sf::Image img;
+    img.create(20, 20);
+    for (auto i = 0; i < 20; ++i) {
+        for (auto j = 0; j < 20; ++j) {
+            img.setPixel(i, j, sf::Color(255 * i / 20, 255 * j / 20, 255 * i / 20 * j / 20));
+        }
+    }
+
+    sf::Texture texture;
+    texture.loadFromImage(img);
+    texture.setRepeated(true);
+
+    sf::Sprite sprite;
+    sprite.setTexture(texture);
+    sprite.setTextureRect({ 0, 0, 800, 600 });
+
+    while (window.isOpen()) {
+        sf::Event event;
+        while (window.pollEvent(event)) {
+            if (event.type == sf::Event::Closed) {
+                window.close();
+            }
+
+            if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Escape) {
+                window.close();
+            }
+        }
+
+        window.clear();
+        window.draw(sprite);
+        window.display();
+    }
+
+    return EXIT_SUCCESS;
+}
+
