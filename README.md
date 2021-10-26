@@ -34,22 +34,15 @@ C++ SFML Dijkstra Geometrical Project
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-<span>
+<p align="middle">
   <img src="https://github.com/fl0wo/AirportLogistic/blob/main/input_files/ezgif1.gif" width="350" height="350"/>
   <img src="https://github.com/fl0wo/AirportLogistic/blob/main/input_files/ezgif2.gif" width="350" height="350"/>
-  <img src="https://github.com/fl0wo/AirportLogistic/blob/main/input_files/image1.png" width="194" height="350"/>
+</p>
 
-</span>
 
-Many airports have moving conveyor belts in the corridors between halls and terminals. Instead of walking on the floor, passengers can choose to stand on a conveyor or, even better, walk on a conveyor to get to the end of the corridor much faster.
-The brand new Delft City Airport uses a similar system. However, in line with the latest fashion in airport architecture, there are no corridors: the entire airport is one big hall with a bunch of conveyor lines laid out on the floor arbitrarily.
-To get from a certain point A to a certain point B, a passenger can use any combination of walking on the floor and walking on conveyors. Passengers can hop on or off a conveyor at any point along the conveyor. It is also possible to cross a conveyor without actually standing on it.
-Walking on the floor goes at a speed of 1 meter/second.
-Walking forward on a conveyor goes at a total speed of 2 meter/second.
-Walking in reverse direction on a conveyor is useless and illegal, but you may walk on the floor immediately next to the conveyor. (Conveyors are infinitely thin.)
-
-How fast can you get from A to B?
-
+<p align="middle">
+Many airports have moving conveyor belts in the corridors between halls and terminals. Instead of walking on the floor, passengers can choose to stand on a conveyor or, even better, walk on a conveyor to get to the end of the corridor much faster.The brand new Delft City Airport uses a similar system. However, in line with the latest fashion in airport architecture, there are no corridors: the entire airport is one big hall with a bunch of conveyor lines laid out on the floor arbitrarily.To get from a certain point A to a certain point B, a passenger can use any combination of walking on the floor and walking on conveyors. Passengers can hop on or off a conveyor at any point along the conveyor. It is also possible to cross a conveyor without actually standing on it.Walking on the floor goes at a speed of 1 meter/second.Walking forward on a conveyor goes at a total speed of 2 meter/second.Walking in reverse direction on a conveyor is useless and illegal, but you may walk on the floor immediately next to the conveyor. (Conveyors are infinitely thin.)How fast can you get from A to B?
+</p>
 
 ### Built With
 
