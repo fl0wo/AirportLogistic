@@ -224,20 +224,25 @@ public:
         Point intersect = lastTouch.closestPointToInfiniteLine(tFrom, tTo);
 
         double cat1 = Utils::calcCat1(lastTouch.distanceFromInfiniteLine(tFrom, tTo));
-
         double distanceOnTransporter = intersect.distanceFromPoint(tFrom) - cat1;
 
         Point t_to2 = tFrom.followByWithInnerBounds(distanceOnTransporter, tFrom,tTo);
+/*
+        DEBUG_DRAW.drawPoint(tFrom.x, tFrom.y,5,"yellow");
+        DEBUG_DRAW.drawPoint(t_to2.x+1, t_to2.y+1,5,"red");
+        DEBUG_DRAW.drawPoint(lastTouch.x+2, lastTouch.y+2,5,"magenta");
+*/
 
-        if(false)
-        if (from == A.id){
-            //Point oIntersect = A.closestPointToInfiniteLine(tras[to].da, tras[to].a); // ?????? him instead lastTouch?
-            double cat3 = Utils::calcCat1(A.distanceFromInfiniteLine(tras[to].da, tras[to].a));
-            Point lastTouch2 = lastTouch.followByWithInnerBounds(cat3,tras[to].da, tras[to].a);
-            //DEBUG_DRAW.drawPoint(lastTouch2.x,lastTouch2.y,2,"blue");
+        DEBUG_DRAW.drawPoint(tras[to].a.x + 1, tras[to].a.y + 1, 7, "red");
+        DEBUG_DRAW.drawPoint(tras[to].da.x + 1, tras[to].da.y + 1, 7, "red");
 
-            return {tFrom, t_to2, lastTouch2};
-        }
+        double basedDistance = lastTouch.distanceFromPoint(tras[to].da);
+        double basedCat1 = Utils::calcCat1(lastTouch.distanceFromPoint(tras[from].a));
+
+        lastTouch = lastTouch.followByWithInnerBounds(basedDistance + basedCat1,tras[to].da,tras[to].a);
+
+        //tFrom = lastTouch.followByWithInnerBounds(50, tFrom,tTo);
+
         return {tFrom, t_to2, lastTouch};
     }
 
@@ -253,6 +258,10 @@ public:
             cur=pi[cur];
             points.emplace_back(connector.c);
             points.emplace_back(connector.b);
+
+            DEBUG_DRAW.drawPoint(connector.b.x, connector.b.y,5,"yellow");
+            //DEBUG_DRAW.drawPoint(connector.c.x+1, connector.c.y+1,5,"red");
+            DEBUG_DRAW.drawPoint(connector.c.x+2, connector.c.y+2,5,"magenta");
 
             //connector.printDistances();
         }

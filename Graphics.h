@@ -17,18 +17,18 @@ class Graphics {
 
 public:
 
-    int originXY = 100;
-    int sizeXY = 200;
+    int originXY = 50;
+    int sizeXY = 300;
 
     void initWindow(int W,int H,string title){
         window = new RenderWindow(VideoMode(W, H), title);
 
         // REMOVE
-        /*View view;
+        View view;
         view.setCenter(mapPoint(originXY, originXY));
         view.setSize(Vector2f(sizeXY, sizeXY));
         window->setView(view);
-*/
+
     }
 
     void bindOnInit(void (*drawLogic)(),void (*controllerLogic)(Event)) {

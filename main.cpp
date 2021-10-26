@@ -8,7 +8,7 @@ using namespace sf;
 using namespace std;
 
 Controller c;
-Model m("C:\\Users\\flo\\Downloads\\CLionSFML-master\\CLionSFML-master\\input_files\\in4.txt",DEBUG_DRAW_TRUE);
+Model m("C:\\Users\\flo\\Downloads\\CLionSFML-master\\CLionSFML-master\\input_files\\in2.txt",DEBUG_DRAW_TRUE);
 Graphics g;
 
 void draw(){
@@ -34,8 +34,8 @@ void draw(){
 }
 
 void drawOnMouseMove(pii mousePosOnClick,pii mouseCurrentPos) {
-    printf("%d %d %d %d\n",c.lastMouseClick.x_, c.lastMouseClick.y_,c.curMousePos.x_,c.curMousePos.y_);
-    printf("%d %d %d %d\n",mousePosOnClick.x_, mousePosOnClick.y_,mouseCurrentPos.x_,mouseCurrentPos.y_);
+    //printf("%d %d %d %d\n",c.lastMouseClick.x_, c.lastMouseClick.y_,c.curMousePos.x_,c.curMousePos.y_);
+    //printf("%d %d %d %d\n",mousePosOnClick.x_, mousePosOnClick.y_,mouseCurrentPos.x_,mouseCurrentPos.y_);
 }
 
 void onMouseLeftClick(pii firstMouseClick,pii secondMouseClick) {
@@ -43,6 +43,7 @@ void onMouseLeftClick(pii firstMouseClick,pii secondMouseClick) {
     pii second = g.deMapPoint(secondMouseClick.x_,secondMouseClick.y_);
 
     m.addLine(first.x_,first.y_,second.x_,second.y_);
+    printf("%d %d %d %d\n",first.x_,first.y_,second.x_,second.y_);
 }
 
 void performMouseCheck(Event e){
