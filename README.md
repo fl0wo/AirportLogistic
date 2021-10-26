@@ -39,8 +39,6 @@ C++ SFML Dijkstra Geometrical Project
   <img src="https://github.com/fl0wo/AirportLogistic/blob/main/input_files/ezgif2.gif" width="350" height="350"/>
 </p>
 
-
-
 <p align="middle">
 Many airports have moving conveyor belts in the corridors between halls and terminals. Instead of walking on the floor, passengers can choose to stand on a conveyor or, even better, walk on a conveyor to get to the end of the corridor much faster. The brand new Delft City Airport uses a similar system. However, in line with the latest fashion in airport architecture, there are no corridors: the entire airport is one big hall with a bunch of conveyor lines laid out on the floor arbitrarily. To get from a certain point A to a certain point B, a passenger can use any combination of walking on the floor and walking on conveyors. Passengers can hop on or off a conveyor at any point along the conveyor. It is also possible to cross a conveyor without actually standing on it.Walking on the floor goes at a speed of 1 meter/second.Walking forward on a conveyor goes at a total speed of 2 meter/second.Walking in reverse direction on a conveyor is useless and illegal, but you may walk on the floor immediately next to the conveyor. (Conveyors are infinitely thin.) How fast can you get from A to B?
 </p>
@@ -50,7 +48,6 @@ Many airports have moving conveyor belts in the corridors between halls and term
 It's a pure C++ project. I've used a graphic library called SFML, really easy to use!
 
 * See the documentation at [SFML](https://www.sfml-dev.org/)
-
 
 <!-- GETTING STARTED -->
 ## Getting Started
@@ -64,11 +61,16 @@ Just clone the repository, install the following library, and run it in your IDE
 You only need to install one librabry to make it work:
 * Installation guide: [SFML](https://www.sfml-dev.org/tutorials/2.5/start-vc.php)
 
+### Geometric
+Something magic is happening when 30° are hitten by the intersect line and the conveyor one.
+* Explanation (todo)
+<p align="middle">
+<img src="https://github.com/fl0wo/AirportLogistic/blob/main/input_files/30degree_funny.gif" width="300" height="300"/>
+</p>
 <!-- ROADMAP -->
 ## Roadmap
 
 - [x] Add Animation
-
 
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
