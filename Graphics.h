@@ -13,7 +13,7 @@ using namespace std;
 class Graphics {
 
     RenderWindow* window;
-    int WINDOW_BORDER=10; // percentage border
+    int WINDOW_BORDER=0; // percentage border
 
 public:
 
@@ -108,6 +108,7 @@ public:
         return window;
     }
 
+    int POINT_RADIUS = 9;
 };
 
 

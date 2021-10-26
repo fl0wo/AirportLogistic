@@ -13,13 +13,12 @@ Graphics g;
 
 void draw(){
     for(pair<pii,pii> linea : m.getLines()){
-        g.drawLine(linea.da_.x_, linea.da_.y_,
-                   linea.a_.x_,linea.a_.y_);
+        g.drawLine(linea.da_.x_, linea.da_.y_,linea.a_.x_,linea.a_.y_);
     }
     pii A = m.getStartPoint();
     pii B = m.getEndPoint();
-    g.drawPoint(A.x_,A.y_,2,"green");
-    g.drawPoint(B.x_,B.y_,2,"red");
+    g.drawPoint(A.x_,A.y_,g.POINT_RADIUS,"green");
+    g.drawPoint(B.x_,B.y_,g.POINT_RADIUS,"red");
 
     vector<pii> path = m.shortestPath();
 
