@@ -41,9 +41,7 @@ void drawOnMouseMove(pii mousePosOnClick,pii mouseCurrentPos) {
 void onMouseLeftClick(pii firstMouseClick,pii secondMouseClick) {
     pii first = g.deMapPoint(firstMouseClick.x_,firstMouseClick.y_);
     pii second = g.deMapPoint(secondMouseClick.x_,secondMouseClick.y_);
-
     m.addLine(first.x_,first.y_,second.x_,second.y_);
-    printf("%d %d %d %d\n",first.x_,first.y_,second.x_,second.y_);
 }
 
 void performMouseCheck(Event e){

@@ -21,10 +21,6 @@ class Model {
     vector<Node> tras;
     int L;
 
-    struct Edge{
-        double time;
-    };
-
     struct Triangle{
         Point a;
         Point b;
@@ -35,26 +31,10 @@ class Model {
         }
     };
 
-    Edge g[MAXN][MAXN];
-
     set <pair <double,int> > coda;
     vector <double> d;
     vector <bool> b;
     vector <int> pi;
-
-    void connectEdges(){
-
-        g[A.id][B.id] = {A.distanceFromPoint(B)}; // walk
-        // connect all lines together
-        for (Node l : tras) {
-            //g[A.id][l.getId()] = {reduceToNode(A).distanceFromNode(l)}; // walk
-            for(Node other : tras)
-                if (l.getId() != other.getId())
-                    g[l.getId()][other.getId()] = {l.distanceFromNode(other)}; // change transport
-
-            //g[l.getId()][B.id] = {l.distanceFromNode(reduceToNode(B))}; // walk
-        }
-    }
 
     void initLines(){
         tras.clear();
@@ -75,13 +55,6 @@ class Model {
 
     void initStartAndEnd(){
         cin>>A.x>>A.y>>B.x>>B.y;
-    }
-
-    void printGraph(){
-        REP(i,L+1){
-            REP(j,L+1)
-                cout << i << " -> " << j << "," <<  g[i][j].time << endl;
-        }
     }
 
     void clearAll() {
@@ -110,8 +83,6 @@ public:
         clearAll();
         initStartAndEnd();
         initLines();
-        connectEdges();
-        printGraph();
         return 0;
     }
 
