@@ -33,9 +33,7 @@ public:
     void performChecks(sf::Event event) {
         if (event.type == sf::Event::MouseButtonPressed) {
             if (event.mouseButton.button == Mouse::Left) {
-
                 curMousePos = make_pair(event.mouseButton.x, event.mouseButton.y);
-
                 if (drawingLine) {
                     onLeftClick(lastMouseClick,curMousePos);
                 } else {

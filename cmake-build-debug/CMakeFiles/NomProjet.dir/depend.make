@@ -77,6 +77,7 @@ CMakeFiles/NomProjet.dir/main.cpp.obj: C:/CLibraries/SFML/include/SFML/Window/Vi
 CMakeFiles/NomProjet.dir/main.cpp.obj: C:/CLibraries/SFML/include/SFML/Window/Window.hpp
 CMakeFiles/NomProjet.dir/main.cpp.obj: C:/CLibraries/SFML/include/SFML/Window/WindowHandle.hpp
 CMakeFiles/NomProjet.dir/main.cpp.obj: C:/CLibraries/SFML/include/SFML/Window/WindowStyle.hpp
+CMakeFiles/NomProjet.dir/main.cpp.obj: ../Controller.h
 CMakeFiles/NomProjet.dir/main.cpp.obj: ../Graphics.h
 CMakeFiles/NomProjet.dir/main.cpp.obj: ../Model.h
 CMakeFiles/NomProjet.dir/main.cpp.obj: ../Node.h

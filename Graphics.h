@@ -77,8 +77,12 @@ public:
     pair<float,float> deMapPoint(float x,float y){
         // x : wSize == ? : 200
         // ? x*200)/wSize
-        //x = (x*sizeXY)/600.0f;
-        //y = (y*sizeXY)/600.0f;
+        // x = (x*sizeXY)/600.0f;
+        // y = (y*sizeXY)/600.0f;
+        x -= window->getSize().x * WINDOW_BORDER / 100;
+        y = window->getSize().y -
+            (window->getSize().y*WINDOW_BORDER/100)
+            - y;
         return {x,y};
     }
 

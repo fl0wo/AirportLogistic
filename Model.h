@@ -129,7 +129,8 @@ public:
 
     vector<pair<pii,pii>> getLines(){
         vector<pair<pii,pii>> lines;
-        REP(i,L)
+        int LL = tras.size();
+        REP(i,LL)
             lines.push_back(mp(
                     puntoToPii(tras[i].da),
                     puntoToPii(tras[i].a)));
@@ -266,9 +267,10 @@ public:
     }
 
     void addLine(int x1, int y1, int x2, int y2) {
-     //   Point da = {x1,y1};
-     //   Point a = {x2,y2};
-     //   tras.push_back({x1,y1,x2,y2});
+        Point a(x1,y1);
+        Point b(x2,y2);
+        Node node(a,b);
+        tras.push_back(node);
     }
 
     pii deMapCoord(int x, int y) {

@@ -29,7 +29,6 @@ void draw(){
         g.drawLine(path[i].x_+off,path[i].y_+off,path[i+1].x_+off,path[i+1].y_+off,i%2==0 ? "green" : "green");
     }
 
-    printf("%d %d %d %d\n",c.lastMouseClick.x_, c.lastMouseClick.y_,c.curMousePos.x_,c.curMousePos.y_);
     g.drawLineRaw(c.lastMouseClick.x_, c.lastMouseClick.y_,c.curMousePos.x_,c.curMousePos.y_);
 
     //printf("total : %.10f\n",m.shortestPathTimeSec());
@@ -38,10 +37,13 @@ void draw(){
 void drawOnMouseMove(pii mousePosOnClick,pii mouseCurrentPos) {
     printf("%d %d %d %d\n",c.lastMouseClick.x_, c.lastMouseClick.y_,c.curMousePos.x_,c.curMousePos.y_);
     printf("%d %d %d %d\n",mousePosOnClick.x_, mousePosOnClick.y_,mouseCurrentPos.x_,mouseCurrentPos.y_);
-
 }
 
-void onMouseLeftClick(pii first,pii second) {
+void onMouseLeftClick(pii firstMouseClick,pii secondMouseClick) {
+
+    pii first = g.deMapPoint(firstMouseClick.x_,firstMouseClick.y_);
+    pii second = g.deMapPoint(secondMouseClick.x_,secondMouseClick.y_);
+
     m.addLine(first.x_,first.y_,second.x_,second.y_);
 }
 
@@ -58,8 +60,6 @@ int main(){
     c.bindOnMouseLeft(onMouseLeftClick,drawOnMouseMove);
 
     g.bindOnInit(draw,performMouseCheck);
-
-    //g.bindAfterInit(printInfos)
 
     return 0;
 }
