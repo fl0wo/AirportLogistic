@@ -40,17 +40,11 @@ C++ SFML Dijkstra Geometrical Project
 </span>
 
 
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-
 ### Built With
 
 It's a pure C++ project. I've used a graphic library called SFML, really easy to use!
 
 * See the documentation at [SFML](https://www.sfml-dev.org/)
-
-<p align="right">(<a href="#top">back to top</a>)</p>
 
 
 <!-- GETTING STARTED -->
@@ -64,23 +58,17 @@ Just clone the repository, install the following library, and run it in your IDE
 
 You only need to install one librabry to make it work:
 * Installation guide: [SFML](https://www.sfml-dev.org/tutorials/2.5/start-vc.php)
-  
-<p align="right">(<a href="#top">back to top</a>)</p>  
 
 <!-- ROADMAP -->
 ## Roadmap
 
 - [x] Add Animation
 
-<p align="right">(<a href="#top">back to top</a>)</p>
-
 
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
 
 * [Dijkstra's algorithm](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm)
-
-<p align="right">(<a href="#top">back to top</a>)</p>
 
 <!-- MARKDOWN LINKS & IMAGES -->
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
