@@ -1,9 +1,5 @@
 # AirportLogistic
 C++ SFML Dijkstra Geometrical Project
-
-
-# Dijkstra-Simulator
-
 <div id="top"></div>
 
 [![LinkedIn][linkedin-shield]][linkedin-url]
