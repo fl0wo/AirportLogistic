@@ -31,8 +31,9 @@ C++ SFML Dijkstra Geometrical Project
 ## About The Project
 
 <p align="middle">
-  <img src="https://github.com/fl0wo/AirportLogistic/blob/main/input_files/ezgif1.gif" width="350" height="350"/>
-  <img src="https://github.com/fl0wo/AirportLogistic/blob/main/input_files/ezgif2.gif" width="350" height="350"/>
+  <img src="https://github.com/fl0wo/AirportLogistic/blob/main/input_files/ezgif1.gif" width="300" height="300"/>
+  <img src="https://github.com/fl0wo/AirportLogistic/blob/main/input_files/ezgif2.gif" width="300" height="300"/>
+  <img src="https://github.com/fl0wo/AirportLogistic/blob/main/input_files/ezgif3.gif" width="300" height="300"/>
 </p>
 
 <p align="middle">
